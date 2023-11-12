@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter/Inter-VariableFont_slnt\,wght.ttf');
+}
+
+body{
+    --primary-color: #000000;
+    --text-color1: #ffffff;
+    --text-color2: #ACACAC;
+    --secondary-color1: #FFE6E6;
+    --secondary-color2: #B3B0D7;
+    background:var(--primary-color);
+    color:var(--text-color1);
+    font-size: calc(10px + 1vw);
+    margin:0;
+    font-family: 'Inter', sans-serif;
+}
+
+h2{
+    font-size:2.5rem;
+    margin:0;
+}

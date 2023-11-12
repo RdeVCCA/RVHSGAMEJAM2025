@@ -1,0 +1,14 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  height: 80vh !important;
+  width: 90vw !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6rem;
+  position: relative;
+  z-index: 5;
+  display: block;
+}

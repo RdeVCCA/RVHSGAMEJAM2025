@@ -1,0 +1,5 @@
+AL is a vessel with a diminishing soul. <br>
+To survive, he parts with his soul, leaving behind a body that will never be complete, thus never one. <br>
+Absorb the powers of other blobs to keep AL alive, with the hope that someday AL will be one with itself and complete
+<br><br>
+Use the WASD keys to move, W to move up, S to move down, A to move left, and D to move right and hold down the space bar to attack and keep AL alive

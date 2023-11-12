@@ -1,0 +1,7 @@
+It's 2077, there's a high-tech facility "Volt Industries", a power plant that 
+is experimenting with harnessing the power of Earth's spin to generate electricity.<br> 
+However, the main computers of the facility got infected with a virus, which forces the reactor
+to heat up uncontrollably. <be> Everyone on Earth flees to outer space because, well, they can, 
+but also because if the reactor blows, the Earth stops spinning, meaning time stands still. <br>
+The reactor is predicted to blow before it reaches one.<br>
+You're an agent, perhaps the last person on Earth, trying to fix up everything.

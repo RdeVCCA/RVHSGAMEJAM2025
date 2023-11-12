@@ -1,0 +1,8 @@
+Robuzz is a game where 2 robots share the same energy orb. <br>
+The robots require the energy orb in order to move around. <br>
+The objective of the game is to let both robots reach the designated targets. <br> 
+Users can pass the energy orb between the 2 robots by dragging and releasing <br>
+from the robot that has the energy orb, which will cause the energy orb to shoot outwards and bounce around. <br>
+<br><br>
+
+Users can move the robots around using the WASD keys.

@@ -1,0 +1,20 @@
+The earth is getting attacked and is looking for a savior and someone would be needed to defend it.<br> 
+Would you like to embark on an adventure to protect the  earth and become the true "earth saviour"? <br>
+Controls: <br>
+Press left and right key to move<br>
+Press space bar to shoot<br>
+Each "enemy" have different ability<br>
+<br><br>
+2 bacterias: is constantly "shaking"<br>
+Meteor : gives double point<br>
+Teleport: it will teleport you to a random location if you don't shoot ( no score if hit)<br>
+Missile : starts off at a very slow speed, but its speed gradually increase over time <br>
+UFO: teleporting every few second <br>
+SOS: help you to completely wipe out enemy on the screen once <br>
+Ice: freeze the enemies, but when you hit one enemy the rest starts moving <br>
+Mask : gives one life, but if shot, -1 one life, does not give any life when it's level 4<br>
+<br><br><br>
+
+As the score increases, your level increases, thus the speed increases, <br>
+<br>
+You will lose one life if you fail to shoot an enemy( excluding teleport, SOS and freeze)
