@@ -1,7 +1,5 @@
 .page{
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
     width: 100vw;
     height: 100vh;
     min-height: fit-content;
@@ -121,4 +119,28 @@
 
 .text-solo{
     width: 50%;
+}
+
+.software-main{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 50vh;
+}
+
+.software-holder{
+    position: relative;
+    width: 30vw;
+    max-width: 12.5rem;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.software-holder:hover{
+    transform: translateY(-1rem);
+}
+
+.software-holder img{
+    width: 100%;
 }

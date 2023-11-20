@@ -46,6 +46,7 @@
                     <img id="image-theme" class="center-h" src="static/img/tem2.webp">
                 </div>
                 <div class="container-text">
+                    <div class="header-subsection center-v text-align-left"><h2><br></h2></div>
                     <p class="header-content text-align-right">If you're stumped by the main theme, you may choose to focus solely on the sub-topics, but be aware this will result in a lower score.</p>
                 </div>
             </div>
@@ -83,6 +84,29 @@
         </div>
         <div class="spacer"></div>
         <h2 class="header-section center-h text-align-center">Recommended Software</h2>
+        <div class="software-main center-h">
+            <div class="software-holder center-v">
+                <a href="https://www.gimp.org/"><img src="static/img/gimps.webp"></a>
+            </div>
+            <div class="software-holder center-v center-h">
+                <a href="https://www.piskelapp.com/"><img src="static/img/piskel.webp"></a>
+            </div>
+            <div class="software-holder center-v">
+                <a href="https://www.reaper.fm/"><img src="static/img/reaper.webp"></a>
+            </div>
+        </div>
+        <div class="spacer"></div>
+        <div class="container-sub">
+            <div class="container-content center-h order-reverse">
+                <div class="container-image">
+                    <img id="image-showcase" class="center-h" src="static/img/tem2.webp">
+                </div>
+                <div class="container-text">
+                    <div class="header-subsection center-v text-align-left"><h2>Game Showcasing</h2></div>
+                    <p class="header-content text-align-left">All entries will be available for playtesting and voting on our Game Jam website in January 2023; find the link in the header.</p>
+                </div>
+            </div>
+        </div>
 
     </div>
     
