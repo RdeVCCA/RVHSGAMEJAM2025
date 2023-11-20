@@ -154,5 +154,28 @@
         <div class="spacer"></div>
         <div class="header-subsection center-v center-h text-align-center"><h2>Contact</h2></div>
 
+        <div class="spacer"></div>
+        <div class="contact-main center-h">
+            <div class="contact-holder center-v">
+                <a href="mailto:rdevcca@gmail.com">
+                    <img src="static/img/gmail.webp">
+                    <p class="center-h text-align-center">rdevcca@gmail.com</p>
+                </a>
+            </div>
+            <div class="contact-holder center-v center-h">
+                <a href="https://www.instagram.com/rv.devs/">
+                    <img src="static/img/ig_contact.webp">
+                    <p class="center-h text-align-center">rv.devs</p>
+                </a>
+            </div>
+            <div class="contact-holder center-v">
+                <div>
+                    <img src="static/img/call.webp">
+                    <p class="center-h text-align-center">8733 9563<br>(President, Zhong Ding)</p>
+                </div>
+            </div>
+        </div>
+        <div class="spacer"></div>
+        <a href="" class="center-h center-v signup-button"><span>Sign Up</span></a>
     </div>
     
