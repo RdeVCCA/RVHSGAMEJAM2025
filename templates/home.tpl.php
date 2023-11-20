@@ -129,5 +129,30 @@
             <p class="header-content text-align-left">Submit 3-4 Screenshots of your game’s content, and a logo.<br><br>Optionally, submit a one-minute video (up to 16MB) to showcase your game's mechanics and thematic relevance.</p>
         </div>
         <div class="spacer"></div>
+        <h2 class="header-section text-align-left">Judging</h2>
+        <div class="container-sub">
+            <div class="container-content center-h order-reverse">
+                <div class="container-image">
+                    <img id="image-showcase" class="center-h" src="static/img/tem2.webp">
+                </div>
+                <div class="container-text">
+                    <div class="header-subsection center-v text-align-left"><h2>Judging Process</h2></div>
+                    <p class="header-content text-align-left">Judging will be done by both the general public and RdeV Exco. Be sure to vote for your favourite games!</p>
+                </div>
+            </div>
+        </div>
+        <div class="spacer"></div>
+        <div class="header-subsection center-v center-h text-align-center"><h2>Judging Rubrix</h2></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+
+        <div class="spacer"></div>
+        <h2 class="header-section text-align-left">Miscellaneous</h2>
+        <div class="header-subsection center-v center-h text-align-center"><h2>Whatsapp Group</h2></div>
+        <p class="header-content text-align-left header-content-central center-h">You may join the GameJam Whatsapp chat included in the whatsapp message sent to all.This Group Chat will be used to communicate between all participants, to ask questions regarding the event as well as to ask for help from others</p>
+        <div class="spacer"></div>
+        <div class="header-subsection center-v center-h text-align-center"><h2>Contact</h2></div>
+
     </div>
     
