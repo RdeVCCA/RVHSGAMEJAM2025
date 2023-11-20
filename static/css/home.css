@@ -1,0 +1,124 @@
+.page{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    min-height: fit-content;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.page-color-black{
+    background-color: #000000;
+}
+
+.center-h{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center-v{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-align-center{
+    text-align: center;
+}
+
+.text-align-left{
+    text-align: left;
+}
+
+.text-align-right{
+    text-align: right;
+}
+
+.header-section{
+    font-family: 'Josefin Sans';
+    color: #ACACAC;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.header-subsection{
+    font-family: 'Inter';
+    color: #ffffff;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.header-content{
+    font-family: 'Inter';
+    color: #ACACAC;
+}
+
+.container-main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1;
+    height: 1%;
+    overflow: auto; /* add this to prevent overflow */
+    /* background-color: red; */
+}
+
+.container-sub{
+    width: 100%;
+    height: 75%;
+    /* background-color: red; */
+}
+
+.spacer{
+    height: 5%;
+}
+
+.container-content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 90%;
+    /* background-color: blue; */
+}
+
+.order-reverse{
+    flex-direction: row-reverse;
+}
+
+.container-image{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-text{
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-image-button{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    font-family: "Inter";
+    font-weight: bold;
+    border-radius: 0.5rem;
+    border: solid 0.3rem #AFACD7;
+    color: #AFACD7;
+    width: 50%;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.flex-image-button:hover{
+    box-shadow: 0px 0px 5px 2px #B3B0D7;
+}
+
+.text-solo{
+    width: 50%;
+}

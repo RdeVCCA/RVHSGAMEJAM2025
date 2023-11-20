@@ -1,0 +1,44 @@
+#image-team{
+    height: 50%;
+    aspect-ratio: 1/1;
+}
+
+#image-calender{
+    height: 90%;
+    width: 90%;
+    object-fit: contain;
+}
+
+#image-theme{
+    height: 90%;
+    width: 90%;
+    object-fit: contain;
+}
+
+#image-ig-1{
+    height: 50%;
+    display: block;
+    width: fit-content;
+}
+
+#image-ig-2{
+    height: 100%;
+    display: block;
+    transition: 0.3s;
+}
+
+#image-ig-2:hover{
+    transform: scale3d(1.1,1.1,1.1);
+}
+
+#image-tool{
+    height: 90%;
+    width: 90%;
+    object-fit: contain;
+}
+
+#image-assets{
+    height: 90%;
+    width: 90%;
+    object-fit: contain;
+}

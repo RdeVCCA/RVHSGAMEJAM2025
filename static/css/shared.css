@@ -3,6 +3,11 @@
     src: url('../fonts/Inter/Inter-VariableFont_slnt\,wght.ttf');
 }
 
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('../fonts/JosefinSans-Regular.ttf');
+}
+
 body{
     --primary-color: #000000;
     --text-color1: #ffffff;
