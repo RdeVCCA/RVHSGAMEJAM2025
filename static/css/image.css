@@ -48,3 +48,11 @@
     width: 90%;
     object-fit: contain;
 }
+
+.image-upload{
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+    margin-left: 5%;
+    margin-right: 5%;
+}

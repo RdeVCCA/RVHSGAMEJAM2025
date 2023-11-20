@@ -96,6 +96,7 @@
             </div>
         </div>
         <div class="spacer"></div>
+        <div class="spacer"></div>
         <div class="container-sub">
             <div class="container-content center-h order-reverse">
                 <div class="container-image">
@@ -107,6 +108,26 @@
                 </div>
             </div>
         </div>
-
+        <div class="spacer"></div>
+        <h2 class="header-section center-h text-align-center">Submission Guidelines</h2>
+        <div class="header-subsection center-v center-h text-align-center"><h2>Deadline</h2></div>
+        <div class="container-central center-h order-reverse">
+            <div class="center-v container-central-image center-h">
+                <img class="image-upload" src="static/img/upload.webp">
+            </div>
+            <p class="header-content text-align-left">Upload your game to the website before the 31st December for public display. Late entries are allowed but will incur a scoring penalty.</p>
+        </div>
+        <div class="header-subsection center-v center-h text-align-center"><h2>Submission Format</h2></div>
+        <p class="header-content text-align-left header-content-central center-h">Submit your game via a Google Drive link on the website's submission page.</p>
+        <div class="header-subsection center-v center-h text-align-center"><h2>Game Description</h2></div>
+        <p class="header-content text-align-left header-content-central center-h">Include a 100-word description to outline your game's features or controls. In-game tutorials are also encouraged to enhance user experience.</p>
+        <div class="header-subsection center-v center-h text-align-center"><h2>Image/Video Graphics</h2></div>
+        <div class="container-central center-h">
+            <div class="center-v container-central-image center-h">
+                <img class="image-upload" src="static/img/upload.webp">
+            </div>
+            <p class="header-content text-align-left">Submit 3-4 Screenshots of your game’s content, and a logo.<br><br>Optionally, submit a one-minute video (up to 16MB) to showcase your game's mechanics and thematic relevance.</p>
+        </div>
+        <div class="spacer"></div>
     </div>
     

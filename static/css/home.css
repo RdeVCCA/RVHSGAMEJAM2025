@@ -39,7 +39,7 @@
     color: #ACACAC;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .header-subsection{
@@ -72,7 +72,8 @@
 }
 
 .spacer{
-    height: 5%;
+    height: 2.5%;
+    /* background-color: red; */
 }
 
 .container-content{
@@ -143,4 +144,20 @@
 
 .software-holder img{
     width: 100%;
+}
+
+.container-central{
+    width: 60%;
+    display: flex;
+}
+
+.header-content-central{
+    width: 50%;
+}
+
+.container-central-image{
+    width: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+
 }
