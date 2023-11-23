@@ -40,19 +40,22 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-weight: bolder;
+    font-size: calc(1rem + 1.5vw) !important;
 }
 
-.header-subsection{
+.header-subsection h2{
     font-family: 'Inter';
     color: #ffffff;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     font-weight: bold;
+    font-size: calc(1rem + 1.5vw) !important;
 }
 
 .header-content{
     font-family: 'Inter';
     color: #ACACAC;
+    font-size: calc(1rem + 0.5vw);
 }
 
 .container-main{
@@ -175,6 +178,10 @@
     width: 33vw;
     height: fit-content;
     transition: 0.3s;
+}
+
+.contact-holder p{
+    font-size: calc(0.5rem + 1vw);
 }
 
 .contact-holder div{

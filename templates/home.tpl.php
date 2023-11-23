@@ -113,7 +113,7 @@
         <div class="header-subsection center-v center-h text-align-center"><h2>Deadline</h2></div>
         <div class="container-central center-h order-reverse">
             <div class="center-v container-central-image center-h">
-                <img class="image-upload" src="static/img/upload.webp">
+                <img class="image-upload center-h" src="static/img/upload.webp">
             </div>
             <p class="header-content text-align-left">Upload your game to the website before the 31st December for public display. Late entries are allowed but will incur a scoring penalty.</p>
         </div>
@@ -124,7 +124,7 @@
         <div class="header-subsection center-v center-h text-align-center"><h2>Image/Video Graphics</h2></div>
         <div class="container-central center-h">
             <div class="center-v container-central-image center-h">
-                <img class="image-upload" src="static/img/upload.webp">
+                <img class="image-upload center-h" src="static/img/upload.webp">
             </div>
             <p class="header-content text-align-left">Submit 3-4 Screenshots of your game’s content, and a logo.<br><br>Optionally, submit a one-minute video (up to 16MB) to showcase your game's mechanics and thematic relevance.</p>
         </div>
