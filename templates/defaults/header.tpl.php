@@ -18,6 +18,27 @@
         <!-- <link rel="stylesheet" href="static/css/share.css?<?php echo time(); ?>"> -->
 
         <!-- <meta name="theme-color" content="#00222b" /> -->
+        <!-- HTML Meta Tags -->
+        <meta property = "og:image" content = "https://rvhsgamejam.x10.mx/static/img/logo.png">
+        <meta property="og:title" content="RdeV">
+        <meta property="og:url" content="https://rvhsgamejam.x10.mx/">
+        <meta property="og:description" content="🎮 Attention RVHS gamers and creators! Join the RVHS Gamejam to showcase your skills in coding, art, music, or storytelling. 🌟 Sign up now and start crafting your gaming masterpiece today! 🚀 Let's get gaming!" >
+        <meta property="og:type" content="website" />
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://rvhsgamejam.x10.mx/">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="RdeV">
+        <meta property="og:description" content="🎮 Attention RVHS gamers and creators! Join the RVHS Gamejam to showcase your skills in coding, art, music, or storytelling. 🌟 Sign up now and start crafting your gaming masterpiece today! 🚀 Let's get gaming!">
+        <meta property="og:image" content="https://rvhsgamejam.x10.mx/static/img/logo.png">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="rvhsgamejam.x10.mx">
+        <meta property="twitter:url" content="https://rvhsgamejam.x10.mx/">
+        <meta name="twitter:title" content="RdeV">
+        <meta name="twitter:description" content="🎮 Attention RVHS gamers and creators! Join the RVHS Gamejam to showcase your skills in coding, art, music, or storytelling. 🌟 Sign up now and start crafting your gaming masterpiece today! 🚀 Let's get gaming!">
+        <meta name="twitter:image" content="https://rvhsgamejam.x10.mx/static/img/logo.png">
     
     
     

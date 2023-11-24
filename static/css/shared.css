@@ -26,3 +26,14 @@ h2{
     font-size:2.5rem;
     margin:0;
 }
+
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+::-webkit-scrollbar-track {
+    background: transparent; /* Optional: Transparent track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; /* Scroll thumb color */
+}
