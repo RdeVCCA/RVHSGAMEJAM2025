@@ -1,6 +1,0 @@
-Rotation is an arcade style infinite runner game. <br>
-In the game, the “W”, “A”, “S” and “D” orbs represent your ability to move up, left, down and right respectively.<br> 
-However, you are never one complete player with all four orbs. This means that your movements will be handicapped. <br>
-That is why the “R” orb is there to rotate the entire screen to help you navigate your way through the dangerous energy orbs to retrieve your movement orbs.
-<br><br>
-Click the “?” circle for the tutorial.
