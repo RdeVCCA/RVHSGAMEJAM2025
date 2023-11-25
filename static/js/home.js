@@ -17,6 +17,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const paused = document.querySelectorAll('.paused');
 
     observeElements(paused);
+    document.getElementById('hero-video').play();
+    
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    var curItem = 0;
+    const carouselLength = carouselItems.length;
+    function nextItem() {
+        console.log(curItem)
+        carouselItems[curItem].classList.remove('active');
+        curItem = (curItem + 1) % carouselLength;
+        carouselItems[curItem].classList.add('active');
+        setTimeout(nextItem, 3000);
+    }
+    nextItem()
   });
   
-  document.getElementById('hero-video').play();
+

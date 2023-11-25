@@ -4,19 +4,17 @@
         <div class="container-content center-h order-reverse">
             <div class="carousel fade-right paused">
                 <?php
-                $active = true;
-                foreach ($pastGame["2022"] as $i => $game) {
+                foreach ($pastGame as $year => $games)
+                foreach ($games as $i => $game) {
                     if (!isset($game['thumbnail'])) {
                         continue;
                     }
                     $thumbnail = $game['thumbnail'];
                     ?>
-                    <div class="carousel-item <?php if ($active)
-                        echo "active" ?>">
+                    <div class="carousel-item">
                             <img class="carousel-image" src="<?php echo $thumbnail ?>">
                     </div>
                     <?php
-                    $active = false;
                 } ?>
             </div>
             <div class="container-text fade-left paused">
