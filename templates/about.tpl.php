@@ -18,9 +18,9 @@
                 } ?>
             </div>
             <div class="container-text fade-left paused">
-                <p class="header-content text-align-left">Join the RVHS GameJam! This month-long event by RdeV showcases
-                    student creativity in game design. Learn or enhance your programming skills through an exciting
-                    gamejam!</p>
+                <p class="header-content text-align-left">Join the RVHS GameJam! This month-long event by <b>RdeV</b> showcases
+                    student creativity in <b class = "white">game design</b>. <b>Learn or enhance</b> your programming skills with your friends through an exciting
+                    <b class = "white">gamejam</b>!</p>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <video class="center-h fade-bottom paused" id="about-video" controls>
             <source src="static/videos/gamejamvid.mp4" type="video/mp4">
         </video>
-        <p class="header-content fade-top paused">What’s a gamejam? A GameJam is a competition where participants create games based on
-            a specific theme.</p>
+        <p class="header-content fade-top paused">What’s a gamejam? A GameJam is a <b class = "white">competition</b> where participants create games based on
+        <b class = "white">a specific theme</b>.</p>
     </div>
 </section>

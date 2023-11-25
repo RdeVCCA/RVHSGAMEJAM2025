@@ -37,8 +37,8 @@ body{
 
 .text-align-right{
     text-align: right;
-    margin-left:auto;
-    margin-right:0;
+    /* margin-left:auto;
+    margin-right:0; */
 }
 
 
@@ -49,6 +49,9 @@ body{
     margin-bottom: 1rem;
     font-weight: bolder;
     font-size: calc(1rem + 1.5vw) !important;
+    width: calc(20 * (1rem + 0.5vw) + 45%);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header-subsection h2{
@@ -58,6 +61,7 @@ body{
     margin-bottom: 0.5rem;
     font-weight: bold;
     font-size: calc(1rem + 1.5vw) !important;
+    max-width: calc(20 * (1rem + 0.5vw));
 }
 
 .header-content{
@@ -94,7 +98,20 @@ body{
     flex-direction: row;
     width: 100%;
     height: 90%;
+    justify-content: center;
     /* background-color: blue; */
+}
+
+.container-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* horizontally align items in center */
+    align-items: center; /* vertically align items in center */
+    width: 100%;
+    flex-grow: 1;
+    height: 1%;
+    overflow: auto; /* add this to prevent overflow */
+    /* background-color: red; */
 }
 
 .order-reverse{
@@ -108,9 +125,10 @@ body{
 }
 
 .container-text{
-    width: 55%;
+    max-width: 55%;
     display: flex;
     flex-direction: column;
+    width: fit-content;
 }
 
 .flex-image-button{

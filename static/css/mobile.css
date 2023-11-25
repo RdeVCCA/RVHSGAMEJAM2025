@@ -1,5 +1,10 @@
 @media only screen and (max-width: 768px) {
-
+    #about-video{
+        width: 100% !important;
+    }
+    .carousel{
+        width: 100% !important;
+    }
     .text-align-left{
         text-align: center;
     }
@@ -19,6 +24,7 @@
 
     .container-text{
         width: 100%;
+        max-width: 100%;
     }
 
     .text-solo{
@@ -27,6 +33,14 @@
 
     .software-main{
         height: 30vh;
+    }
+
+    .header-section{
+        width: 100%;
+    }
+
+    .header-subsection h2{
+        max-width: 100%;
     }
 
     .header-content-central{
