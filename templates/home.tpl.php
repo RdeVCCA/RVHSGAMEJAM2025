@@ -1,4 +1,4 @@
-
+<?php require "backend/About/pastGames.inc.php"?>
 <link rel="stylesheet" href="static/css/hero.css?<?php echo time(); ?>" />
 <link rel="stylesheet" href="static/css/about.css?<?php echo time(); ?>" />
 </head>
@@ -6,7 +6,7 @@
 <body style="height: 100%;">
     <?php include "templates/hero.tpl.php" ?>
     <?php include "templates/about.tpl.php" ?>
-
+    <?php include "templates/pastGames.tpl.php" ?>
 
     <div class="page">
         <h2 class="header-section">Details</h2>
