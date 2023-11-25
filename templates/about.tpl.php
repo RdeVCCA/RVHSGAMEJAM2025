@@ -29,7 +29,7 @@
         <video class="center-h fade-bottom paused" id="about-video" controls>
             <source src="static/videos/gamejamvid.mp4" type="video/mp4">
         </video>
-        <p class="header-content fade-top paused">What’s a gamejam? A GameJam is a <b class = "white">competition</b> where participants create games based on
+        <p class="header-content fade-top paused text-align-left">What’s a gamejam? A GameJam is a <b class = "white">competition</b> where participants create games based on
         <b class = "white">a specific theme</b>.</p>
     </div>
 </section>

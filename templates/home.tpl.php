@@ -1,4 +1,4 @@
-<?php require "backend/About/pastGames.inc.php"?>
+
 <link rel="stylesheet" href="static/css/hero.css?<?php echo time(); ?>" />
 <link rel="stylesheet" href="static/css/about.css?<?php echo time(); ?>" />
 </head>
@@ -6,16 +6,12 @@
 <body style="height: 100%;">
     <?php include "templates/hero.tpl.php" ?>
     <?php include "templates/about.tpl.php" ?>
-    <?php include "templates/pastGames.tpl.php" ?>
+    
 
     <div class="page">
         <h2 class="header-section">Details</h2>
         <div class="container-sub">
-            <div class="container-content center-h order-reverse">
-                <div class="container-image">
-                    <img id="image-team" class="center-h" src="static/img/team.webp">
-                    <a href="https://forms.gle/YiPxeeYy15nnUFm7A" class="center-h flex-image-button fade-bottom paused">Sign Up</a>
-                </div>
+            <div class="container-content center-h">
                 <div class="container-text">
                     <div class="header-subsection center-v text-align-left">
                         <h2>Eligibility and Team Formation</h2>
@@ -24,14 +20,15 @@
                         participate <b>individually</b> or in <b>teams of up to four members</b>. Feel free to choose your teammates
                         or opt for <b>random assignment</b>.</p>
                 </div>
+                <div class="container-image">
+                    <img id="image-team" class="center-h" src="static/img/team.webp">
+                    <a href="https://forms.gle/YiPxeeYy15nnUFm7A" class="center-h flex-image-button fade-bottom paused">Sign Up</a>
+                </div>
             </div>
         </div>
         <div class="spacer"></div>
         <div class="container-sub">
-            <div class="container-content center-h">
-                <div class="container-image">
-                    <img id="image-calender" class="center-h" src="static/img/calender.webp">
-                </div>
+            <div class="container-content center-h order-reverse">
                 <div class="container-text">
                     <div class="header-subsection center-v text-align-right">
                         <h2>Competition Timeline</h2>
@@ -39,15 +36,14 @@
                     <p class="header-content text-align-right fade-right paused">The game jam runs from <b class = "white">December 1st to 31st</b>, coinciding
                         with the December holidays.</p>
                 </div>
+                <div class="container-image">
+                    <img id="image-calender" class="center-h" src="static/img/calender.webp">
+                </div>
             </div>
         </div>
         <div class="spacer"></div>
         <div class="container-sub">
-            <div class="container-content center-h order-reverse">
-                <div class="container-image" id="image-themes">
-                    <img class="center-h first fade-tilt-left paused" src="static/img/oldTheme1.webp">
-                    <img class="center-h second fade-tilt-right paused" src="static/img/oldTheme2.webp">
-                </div>
+            <div class="container-content center-h">
                 <div class="container-text">
                     <div class="header-subsection center-v text-align-left">
                         <h2>Theme</h2>
@@ -55,20 +51,24 @@
                     <p class="header-content text-align-left fade-left paused">The game jam features <b class = "white">one main topic</b>, along with <b class = "white">three
                         optional sub-topics</b>, which will boost your score.</p>
                 </div>
+                <div class="container-image" id="image-themes">
+                    <img class="center-h first fade-tilt-left paused" src="static/img/oldTheme1.webp">
+                    <img class="center-h second fade-tilt-right paused" src="static/img/oldTheme2.webp">
+                </div>
             </div>
         </div>
         <div class="spacer"></div>
         <div class="container-sub">
-            <div class="container-content center-h">
-                <div class="container-image">
-                    <img id="image-theme" class="center-h" src="static/img/gmtkTheme.webp">
-                </div>
+            <div class="container-content center-h  order-reverse">
                 <div class="container-text">
                     <div class="header-subsection center-v text-align-left">
                         <h2><br></h2>
                     </div>
                     <p class="header-content text-align-right fade-right paused">If you're stumped by the main theme, you may choose to
                         focus <b>solely on the sub-topics</b>, but be aware this will result in a <b class = "white">lower score</b>.</p>
+                </div>
+                <div class="container-image">
+                    <img id="image-theme" class="center-h" src="static/img/gmtkTheme.webp">
                 </div>
             </div>
         </div>
@@ -83,31 +83,32 @@
         </div>
         <div class="spacer"></div>
         <div class="container-sub">
-            <div class="container-content center-h order-reverse">
-                <div class="container-image fade-in paused">
-                    <img id="image-tool" class="center-h" src="static/img/tool.webp">
-                </div>
+            <div class="container-content center-h">
                 <div class="container-text">
                     <div class="header-subsection center-v text-align-left">
                         <h2>Coding Tools</h2>
                     </div>
                     <p class="header-content text-align-left fade-right paused">Participants can use <b>any coding software or engine</b>,
-                        including <b class = "white">AI tools</b> like ChatGPT for <b class = "white">coding purposes</b>.</p>
+                        including <b class = "white">AI tools</b> like ChatGPT for <b class = "white">coding purposes</b>.
+                    </p>
+                </div>
+                <div class="container-image fade-in paused">
+                    <img id="image-tool" class="center-h" src="static/img/tool.webp">
                 </div>
             </div>
         </div>
         <div class="spacer"></div>
         <div class="container-sub">
-            <div class="container-content center-h">
-                <div class="container-image">
-                    <img id="image-assets" class="center-h" src="static/img/assets.webp">
-                </div>
+            <div class="container-content center-h order-reverse">
                 <div class="container-text">
                     <div class="header-subsection center-v text-align-right">
                         <h2>Asset Creation</h2>
                     </div>
                     <p class="header-content text-align-right fade-right paused">While <b>AI-generated assets</b> is permissible, it <b class = "white">must be
                         declared</b>. We encourage you to <b>create your own assets</b>.</p>
+                </div>
+                <div class="container-image">
+                    <img id="image-assets" class="center-h" src="static/img/assets.webp">
                 </div>
             </div>
         </div>
@@ -177,16 +178,16 @@
         <div class="spacer"></div>
         <h2 class="header-section text-align-left">Judging</h2>
         <div class="container-sub">
-            <div class="container-content center-h order-reverse">
-                <div class="container-image fade-right paused">
-                    <img id="image-showcase" class="center-h" src="static/img/judging.webp">
-                </div>
+            <div class="container-content center-h">
                 <div class="container-text">
                     <div class="header-subsection center-v text-align-left">
                         <h2>Judging Process</h2>
                     </div>
                     <p class="header-content text-align-left fade-left paused">Judging will be done by both the <b class = "white">general public</b> and <b>RdeV
                         Exco</b>. Be sure to vote for your favourite games!</p>
+                </div>
+                <div class="container-image fade-right paused">
+                    <img id="image-showcase" class="center-h" src="static/img/judging.webp">
                 </div>
             </div>
         </div>
