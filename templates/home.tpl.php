@@ -1,4 +1,4 @@
-<?php require "backend/About/pastGames.inc.php"?>
+
 <link rel="stylesheet" href="static/css/hero.css?<?php echo time(); ?>" />
 <link rel="stylesheet" href="static/css/about.css?<?php echo time(); ?>" />
 </head>
@@ -6,7 +6,7 @@
 <body style="height: 100%;">
     <?php include "templates/hero.tpl.php" ?>
     <?php include "templates/about.tpl.php" ?>
-    <?php include "templates/pastGames.tpl.php" ?>
+
 
     <div class="page">
         <h2 class="header-section">Details</h2>
@@ -143,7 +143,7 @@
         <div class="spacer"></div>
         <h2 class="header-section center-h text-align-center">Submission Guidelines</h2>
         <div class="header-subsection center-v center-h text-align-center">
-            <h2>Deadline</h2>
+            <h2 class="center-h">Deadline</h2>
         </div>
         <div class="container-central center-h order-reverse">
             <div class="center-v container-central-image center-h fade-in paused">
@@ -153,18 +153,18 @@
                 public display. Late entries are allowed but will incur a scoring penalty.</p>
         </div>
         <div class="header-subsection center-v center-h text-align-center">
-            <h2>Submission Format</h2>
+            <h2 class="center-h">Submission Format</h2>
         </div>
         <p class="header-content text-align-left header-content-central center-h fade-bottom paused">Submit your game via a Google Drive
             link on the website's submission page.</p>
         <div class="header-subsection center-v center-h text-align-center">
-            <h2>Game Description</h2>
+            <h2 class="center-h">Game Description</h2>
         </div>
         <p class="header-content text-align-left header-content-central center-h fade-bottom paused">Include a 100-word description to
             outline your game's features or controls. In-game tutorials are also encouraged to enhance user experience.
         </p>
         <div class="header-subsection center-v center-h text-align-center">
-            <h2>Image/Video Graphics</h2>
+            <h2 class="center-h">Image/Video Graphics</h2>
         </div>
         <div class="container-central center-h">
             <div class="center-v container-central-image center-h fade-in paused">
@@ -192,8 +192,7 @@
         </div>
         <div class="spacer"></div>
         <div class="header-subsection center-v center-h text-align-center">
-            <h2>Judging Rubrix</h2>
-
+            <h2 class="center-h">Judging Rubrix</h2>
         </div>
         <?php require "templates/judgingRubrix.tpl.php"?>
         <div class="spacer"></div>
@@ -202,14 +201,14 @@
         <div class="spacer"></div>
         <h2 class="header-section text-align-left">Miscellaneous</h2>
         <div class="header-subsection center-v center-h text-align-center">
-            <h2>Whatsapp Group</h2>
+            <h2 class="center-h">Whatsapp Group</h2>
         </div>
         <p class="header-content text-align-center header-content-central center-h fade-bottom paused">You may join the GameJam Whatsapp chat
             included in the whatsapp message sent to all.This Group Chat will be used to communicate between all
             participants, to ask questions regarding the event as well as to ask for help from others</p>
         <div class="spacer"></div>
         <div class="header-subsection center-v center-h text-align-center">
-            <h2>Contact</h2>
+            <h2 class="center-h">Contact</h2>
         </div>
 
         <div class="spacer"></div>
