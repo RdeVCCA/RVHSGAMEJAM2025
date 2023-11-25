@@ -37,3 +37,7 @@ h2{
 ::-webkit-scrollbar-thumb {
     background: #888; /* Scroll thumb color */
 }
+
+.white{
+    color:white;
+}
