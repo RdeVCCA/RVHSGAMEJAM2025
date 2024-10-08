@@ -1,4 +1,10 @@
 "use strict";
+// to anyone wondering where the variable `pastGames` comes from,
+// it comes from
+// const pastGames = <?php echo json_encode($pastGame); ?>;
+// in home.tpl.php
+// and `$pastGame` comes from pastGames.inc.php which loads from a database
+
 const selectYear = document.querySelectorAll('.select-year');
 var selectedYear = document.querySelector('.select-year[data-selected="true"]');
 var selectedGame;

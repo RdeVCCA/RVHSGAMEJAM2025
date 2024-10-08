@@ -13,13 +13,12 @@ function convertToCamelCase($string) {
     return $string;
 }
 
-
-function convertToFileLink($name, $year, $type){
+function convertToFileLink($name, $year, $type) {
     // 0 = video, 1 = image, 2 = logo
     $mimeTypes = [
-"mp4",
-"png",
-"png"
+        "mp4",
+        "png",
+        "png"
     ];
     $folders = [
         "videos",
@@ -32,10 +31,11 @@ function convertToFileLink($name, $year, $type){
     $filePath = "static/pastGames/".$year."/".$folder."/".$fileName;
     return $filePath;
 }
+
 $sql = "SELECT * FROM pastGames";
 $result = mysqli_query($conn, $sql);
 $pastGame = [];
-while ($row = mysqli_fetch_assoc($result)){
+while ($row = mysqli_fetch_assoc($result)) {
     $year = $row['year'];
     $new = [
         "name" => $row['name'],
@@ -63,6 +63,5 @@ while ($row = mysqli_fetch_assoc($result)){
     }
 
     $pastGame[$year][$row["gameId"]] = $new;
-    
 }
 ?>

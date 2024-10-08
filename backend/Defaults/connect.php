@@ -1,5 +1,6 @@
 <?php
 
+// WHAT??????????
 define("salt", "0no3dbBWxbppqt7bcE8fCaM7IKM0nnLI");
 define("SECRET_KEY", "q3Mfg4TFEoXgVwoPEiYoz3Y0qm4iYYxF");
 

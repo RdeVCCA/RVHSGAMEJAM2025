@@ -3,6 +3,7 @@
 <div class="past-games">
     <h2>Past GameJams</h2>
     <div class="select-year-container">
+        <!-- TODO: maybe can auto add years by reading off of a .json in the future? -->
         <button class="select-year" data-selected="true">2021</button>
         <button class="select-year">2022</button>
     </div>
