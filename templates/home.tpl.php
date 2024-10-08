@@ -137,7 +137,7 @@
                         <h2>Game Showcasing</h2>
                     </div>
                     <p class="header-content text-align-left fade-right paused">All entries will be available for playtesting and voting
-                        on our Game Jam website in <b class = "white">January 2023</b>; find the <b>link in the header</b>.</p>
+                        on our Game Jam website in <b class = "white">January 2025</b>; find the <b>link in the header</b>.</p>
                 </div>
             </div>
         </div>
