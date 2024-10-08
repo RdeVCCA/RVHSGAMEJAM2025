@@ -75,7 +75,7 @@
         <div class="spacer"></div>
         <div class="container-sub">
             <p class="header-content text-align-center text-solo center-h fade-top paused">The game's theme will be announced at the
-                start of the competition on <b>December 1st</b>, via <b class = "white">this website</b> and <b class = "white">social media</b>.</p>
+                start of the competition on <b>November 16</b>, via <b class = "white">this website</b> and <b class = "white">social media</b>.</p>
             <div class="center-h fade-in paused" id="image-ig-1">
                 <a href="https://www.instagram.com/rv.devs/"><img id="image-ig-2" class="center-h"
                         src="static/img/ig.webp"></a>
@@ -137,7 +137,7 @@
                         <h2>Game Showcasing</h2>
                     </div>
                     <p class="header-content text-align-left fade-right paused">All entries will be available for playtesting and voting
-                        on our Game Jam website in <b class = "white">January 2023</b>; find the <b>link in the header</b>.</p>
+                        on our Game Jam website in <b class = "white">January 2025</b>; find the <b>link in the header</b>.</p>
                 </div>
             </div>
         </div>
@@ -229,7 +229,7 @@
             <div class="contact-holder center-v fade-in paused">
                 <div>
                     <img src="static/img/call.webp">
-                    <p class="center-h text-align-center">8733 9563<br>(President, Zhong Ding)</p>
+                    <p class="center-h text-align-center">+65 8511 8746<br>(President, Natalie)</p>
                 </div>
             </div>
         </div>
