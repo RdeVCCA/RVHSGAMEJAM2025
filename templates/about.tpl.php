@@ -18,7 +18,7 @@
                 } ?>
             </div>
             <div class="container-text fade-left paused">
-                <p class="header-content text-align-left">Join the RVHS GameJam! This month-long event by <b>RdeV</b> showcases
+                <p class="header-content text-align-left">Join the RVHS GameJam! This holiday-long event by <b>RdeV</b> showcases
                     student creativity in <b class = "white">game design</b>. <b>Learn or enhance</b> your programming skills with your friends through an exciting
                     <b class = "white">gamejam</b>!</p>
             </div>
