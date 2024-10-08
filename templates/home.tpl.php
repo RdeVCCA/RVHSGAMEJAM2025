@@ -229,7 +229,7 @@
             <div class="contact-holder center-v fade-in paused">
                 <div>
                     <img src="static/img/call.webp">
-                    <p class="center-h text-align-center">8733 9563<br>(President, Zhong Ding)</p>
+                    <p class="center-h text-align-center">+65 8511 8746<br>(President, Natalie)</p>
                 </div>
             </div>
         </div>
