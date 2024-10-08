@@ -33,7 +33,7 @@
                     <div class="header-subsection center-v text-align-right">
                         <h2>Competition Timeline</h2>
                     </div>
-                    <p class="header-content text-align-right fade-right paused">The game jam runs from <b class = "white">16 November - 31st December</b>, taking part in the duration of the December Holidays</p>
+                    <p class="header-content text-align-right fade-right paused">The game jam runs from <b class = "white">1st November - 31st December</b>, taking part in the duration of the December Holidays</p>
                 </div>
                 <div class="container-image">
                     <img id="image-calender" class="center-h" src="static/img/calender.webp">
