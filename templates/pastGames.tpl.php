@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="static/css/pastGames.css" />
 <link rel="stylesheet" href="static/css/shared.css" />
 <div class="past-games">
-    <h2>Past GameJams</h2>
+    <h2>Past Gamejams</h2>
     <div class="select-year-container">
         <!-- TODO: maybe can auto add years by reading off of a .json in the future? -->
         <button class="select-year" data-selected="true">2021</button>

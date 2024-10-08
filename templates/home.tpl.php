@@ -40,7 +40,7 @@
                         <h2>Competition Timeline</h2>
                     </div>
                     <p class="header-content text-align-right fade-right paused">
-                        The game jam runs from <b class="white">November 1st to December 31st</b>,
+                        The Gamejam runs from <b class="white">November 1st to December 31st</b>,
                         which includes the December holidays.
                     </p>
                 </div>
@@ -59,7 +59,7 @@
                         <h2>Theme</h2>
                     </div>
                     <p class="header-content text-align-left fade-left paused">
-                        The game jam features <b class="white">one main topic</b>,
+                        The Gamejam features <b class="white">one main topic</b>,
                         along with <b class="white">three optional sub-topics</b>,
                         which will boost your score.
                     </p>
@@ -172,7 +172,7 @@
                         <h2>Game Showcasing</h2>
                     </div>
                     <p class="header-content text-align-left fade-right paused">
-                        All entries will be available for playtesting and voting on our Game Jam website in
+                        All entries will be available for playtesting and voting on our Gamejam website in
                         <b class="white">January 2025</b>; find the <b>link in the header</b>.
                     </p>
                 </div>
@@ -266,7 +266,7 @@
             <h2 class="center-h">Whatsapp Group</h2>
         </div>
         <p class="header-content text-align-center header-content-central center-h fade-bottom paused">
-            You may join the <b class="white">GameJam Whatsapp chat</b> included in the <b>sign up Google Form</b>.
+            You may join the <b class="white">Gamejam Whatsapp chat</b> included in the <b>sign up Google Form</b>.
             This group chat will be used to <b>communicate between all participants</b>,
             to <b>ask questions regarding the event</b> as well as to ask for help from others.
         </p>
