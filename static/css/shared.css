@@ -3,12 +3,14 @@
     src: url('../fonts/Inter/Inter-VariableFont_slnt\,wght.ttf');
 }
 
+/*
 @font-face {
     font-family: 'Josefin Sans';
     src: url('../fonts/JosefinSans-Bold.ttf');
 }
+*/
 
-body{
+body {
     --primary-color: #000000;
     --text-color1: #ffffff;
     --text-color2: #ACACAC;
@@ -22,7 +24,7 @@ body{
     overflow-x: hidden;
 }
 
-h2{
+h2 {
     font-size:2.5rem;
     margin:0;
 }
@@ -38,6 +40,6 @@ h2{
     background: #888; /* Scroll thumb color */
 }
 
-.white{
+.white {
     color:white;
 }
