@@ -6,6 +6,7 @@
       <div class="select-year-container">
         <button class="select-year" data-selected="true">2021</button>
         <button class="select-year">2022</button>
+        <button class="select-year">2023</button>
       </div>
       <div class="select-game-container">
         <input type="image" class="select-game" data-selected="true"/>
