@@ -5,6 +5,8 @@
 // in home.tpl.php
 // and `$pastGame` comes from pastGames.inc.php which loads from a database
 
+console.log(pastGames);
+
 const selectYear = document.querySelectorAll('.select-year');
 var selectedYear = document.querySelector('.select-year[data-selected="true"]');
 var selectedGame;
@@ -17,19 +19,19 @@ function updateGameDetails(gameId) {
     const title = gameDetails.querySelector('.game-title');
     const visitButton = gameDetails.querySelector('.game-visit');
     const game = pastGames[selectedYear.innerHTML][gameId];
-    console.log(game);
+
     description.innerHTML = game.description;
-    if (game.video){
+    if (game.video) {
         video.querySelector("source").src = game.video;
         video.load();
         video.style.display = 'block';
         img.style.display = 'none';
-    }
-    else{
+    } else {
         img.src = game.thumbnail;
         img.style.display = 'block';
         video.style.display = 'none';
     }
+    console.log(game.title);
     title.textContent = game.title;
     visitButton.onclick = function() {
         window.open(game.link, '_blank');
@@ -65,7 +67,6 @@ function loadGames(year){
     }
 }
 for (let i = 0; i < selectYear.length; i++) {
-    
     selectYear[i].addEventListener('click', function() {
         selectedYear.removeAttribute('data-selected');
         this.setAttribute('data-selected', 'true');

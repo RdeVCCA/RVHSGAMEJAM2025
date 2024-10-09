@@ -7,8 +7,8 @@ define("SECRET_KEY", "q3Mfg4TFEoXgVwoPEiYoz3Y0qm4iYYxF");
 // $servername = "127.0.0.1";
 $servername = "localhost";
 $username = "root";
-$password = "";
-$db_name = "2023gamejam";
+$password = "123"; // change this to blank
+$db_name = "ylrdxapi_rvhsgamejam"; // might need to change this??? idk
 $conn = mysqli_connect($servername, $username, $password, $db_name);
 
 function prepared_query($mysqli, $sql, $params, $types = "")

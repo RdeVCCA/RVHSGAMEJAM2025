@@ -36,13 +36,13 @@ function convertToFileLink($name, $year, $type) {
     return $filePath;
 }
 
-$sql = "SELECT * FROM pastGames";
+$sql = "SELECT * FROM pastgames";
 $result = mysqli_query($conn, $sql);
 $pastGame = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $year = $row['year'];
     $new = [
-        "name" => $row['name'],
+        "title" => $row['name'],
         "link" => $row['link'],
         "description" => $row['description'],
         "creators" => $row['creators']
