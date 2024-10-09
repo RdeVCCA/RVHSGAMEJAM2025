@@ -1,15 +1,17 @@
 <?php require "backend/About/pastGames.inc.php"?>
 <link rel="stylesheet" href="static/css/hero.css?<?php echo time(); ?>" />
 <link rel="stylesheet" href="static/css/about.css?<?php echo time(); ?>" />
-<link rel="stylesheet" href="static/css/navbar.css?<?php echo time(); ?>" />
 </head>
 
 <body style="height: 100%;">
     <!-- this file is only for the content that comes after the past games section -->
-    <?php include "templates/navbar.tpl.php" ?>
-    <?php include "templates/hero.tpl.php" ?>
-    <?php include "templates/about.tpl.php" ?>
-    <?php include "templates/pastGames.tpl.php" ?>
+    <?php
+        include "templates/navbar.tpl.php";
+        include "templates/hero.tpl.php";
+        include "templates/about.tpl.php";
+        include "templates/pastGames.tpl.php";
+    ?>
+    
 
     <div class="page">
         <!-- eligibility and team formation -->

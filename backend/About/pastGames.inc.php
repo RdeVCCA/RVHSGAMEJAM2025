@@ -1,5 +1,4 @@
 <?php
-require "backend/Defaults/connect.php";
 function convertToCamelCase($string) {
     // Removes every character that isn't a letter, number or space
     $string = preg_replace('/[^a-zA-Z0-9 ]/', '', $string);
