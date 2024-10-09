@@ -3,24 +3,68 @@
         <script src = "static/js/game.js"></script>
     </head>
 
+
     <body>
+        <?php
+            include 'templates/navbar.tpl.php';
+            include 'backend/pastGames.inc.php';
+            $gameId = $_GET['gameId'];
+
+            $gameSql = 'SELECT name, description, genre, creators, link, trailer, year FROM pastgames WHERE gameId = ?';
+            $gamePrepared = $conn->prepare($gameSql);
+            $gamePrepared->bind_param('i', $gameId);
+            $gamePrepared->execute();
+            $gamePrepared->bind_result($name, $desc, $genre, $creators, $link, $trailer, $year);
+            $gamePrepared->fetch();
+            $gamePrepared->free_result();
+
+            $thumbnail = convertToFileLink($name, $year, 1);
+
+            $commentSql = 'SELECT pfp, username, `comment` FROM comments LEFT JOIN users ON comments.userId = users.userId WHERE gameId = ?';
+            $commentPrepared = $conn->prepare($commentSql);
+            $commentPrepared->bind_param('i', $gameId);
+            $commentPrepared->execute();
+            $commentPrepared->bind_result($pfp, $username, $comment);
+            $comments = [];
+            while ($commentPrepared->fetch()) {
+                $comments[] = [
+                        'pfp' => $pfp,
+                        'username' => $username,
+                        'comment' => $comment,
+                    ];
+            }
+            $commentPrepared->free_result();
+        ?>
         <div class="center">
             <div id='Header'>
-                <h1>$GameName</h1>
-                <div>$Genre</div>
-                <div>Created by $Author</div>
-            </div> 
+                <h1><?php echo $name ?></h1>
+                <div><?php echo $genre ?></div>
+                <div>Created by <?php echo $creators ?></div>
+            </div>
             
-             <div id='T_V'>
-                <a href = 'index.php?filename=game&game=$gameId&PV=$PV_indexl'><div id = 'startArrow'>&#x2190;</div></a>
-                 <iframe width='560' height='315' src = '$Trailer[$PV_index]'></iframe>
-                 <img class = 'thumbnail' src = '$Trailer[$PV_index]'>
-                 <a href = 'index.php?filename=game&game=$gameId&PV=$PV_indexg'><div id = 'endArrow'> &#x2192;</div></a>";
-             </div>"
+            <div id='game-carousel'>
+                <a href='index.php?filename=game&gameId=1'><div id='startArrow'>&#x2190;</div></a>
+                <?php
+                if ($trailer) {
+                    ?>
+                    <iframe width='560' height='315' src='<?php echo $trailer ?>'></iframe>
+                    <?php
+                } else {
+                    ?>
+                    <img class='thumbnail' src='<?php echo $thumbnail ?>'>
+                    <?php
+                }
+                ?>
+                <a href='index.php?filename=game&gameId=1'><div id='endArrow'>&#x2192;</div></a>
+            </div>
 
-            <a href=""><div id="gameButton">Play Game</div></a>
+            <a href="<?php echo $link ?>">
+                <div id="gameButton">Play Game</div>
+            </a>
         </div>
-        <div id='Description'>$Descriptions</div>
+        
+        <div id='Description'><?php echo $desc ?></div>
+        
         <div class = "margin">
             <form action = 'index.php?filename=game&game=$gameId&PV=$PV_index' method = 'POST'>
                 <h2>Rate</h2>
@@ -63,6 +107,22 @@
                 <textarea placeholder = "Enter a comment" id = "commentInput" name = "comment"></textarea>
                 <button class = 'submit' type = 'submit'>Add Comment</button>
             </form>
+            <div class="comment-container">
+                <?php
+                foreach ($comments as $comment) {
+                    ?>
+                    <div class="comment">
+                        <div class="commenter">
+                            <img class='pfp' src='<?php echo $comment['pfp']?>'>
+                            <div><?php echo $comment['username'] ?></div>
+                        </div>
+                        <div><?php echo $comment['comment'] ?></div>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+        </div>
     </body>
 </html>
 

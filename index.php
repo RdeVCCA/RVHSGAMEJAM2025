@@ -20,6 +20,10 @@ switch ($filename) {
         include 'templates/gallery.tpl.php';
     break;
 
+    case 'game':
+        include 'templates/game.tpl.php';
+    break;
+
     default:
         include 'templates/home.tpl.php';
 }
