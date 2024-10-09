@@ -1,4 +1,4 @@
-<?php require "backend/About/pastGames.inc.php"?>
+<?php require "backend/pastGames.inc.php"?>
 <link rel="stylesheet" href="static/css/hero.css?<?php echo time(); ?>" />
 <link rel="stylesheet" href="static/css/about.css?<?php echo time(); ?>" />
 </head>
