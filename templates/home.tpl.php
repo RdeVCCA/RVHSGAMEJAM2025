@@ -1,10 +1,12 @@
 <?php require "backend/About/pastGames.inc.php"?>
 <link rel="stylesheet" href="static/css/hero.css?<?php echo time(); ?>" />
 <link rel="stylesheet" href="static/css/about.css?<?php echo time(); ?>" />
+<link rel="stylesheet" href="static/css/navbar.css?<?php echo time(); ?>" />
 </head>
 
 <body style="height: 100%;">
     <!-- this file is only for the content that comes after the past games section -->
+    <?php include "templates/navbar.tpl.php" ?>
     <?php include "templates/hero.tpl.php" ?>
     <?php include "templates/about.tpl.php" ?>
     <?php include "templates/pastGames.tpl.php" ?>
@@ -45,7 +47,7 @@
                     </p>
                 </div>
                 <div class="container-image">
-                    <img id="image-calender" class="center-h" src="static/img/calender.webp">
+                    <img id="image-calendar" class="center-h" src="static/img/calendar.webp">
                 </div>
             </div>
         </div>

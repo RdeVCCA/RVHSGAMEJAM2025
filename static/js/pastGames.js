@@ -5,8 +5,6 @@
 // in home.tpl.php
 // and `$pastGame` comes from pastGames.inc.php which loads from a database
 
-console.log(pastGames);
-
 const selectYear = document.querySelectorAll('.select-year');
 var selectedYear = document.querySelector('.select-year[data-selected="true"]');
 var selectedGame;
@@ -31,7 +29,6 @@ function updateGameDetails(gameId) {
         img.style.display = 'block';
         video.style.display = 'none';
     }
-    console.log(game.title);
     title.textContent = game.title;
     visitButton.onclick = function() {
         window.open(game.link, '_blank');
