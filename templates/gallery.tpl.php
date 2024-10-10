@@ -11,22 +11,22 @@
         <div id = "appendGames">
             <?php
             // sql query to select games from previous year only
-            $sql = 'SELECT name, description, genre, creators, link, year FROM pastgames WHERE year = (SELECT MAX(year) FROM pastgames)';
-            $games = ($conn->query($sql))->fetch_all();
-            foreach ($games as $game) {
-                $name = $game[0];
-                $desc = $game[1];
-                $genre = $game[2];
-                $creators = $game[3];
-                $link = $game[4];
-                $year = $game[5];
+            $sql = 'SELECT gameId, name, description, genre, creators, link, year FROM pastgames WHERE year = (SELECT MAX(year) FROM pastgames)';
+            $prepared = $conn->prepare($sql);
+            $prepared->execute();
+            $prepared->bind_result($gameId, $name, $desc, $genre, $creators, $link, $year);
+            while ($prepared->fetch()) {
                 $thumbnail = convertToFileLink($name, $year, 1);
-                echo "<div id='appendGame'>";
-                    echo "<a class='game-logo-container' href='$link'><img id='gameLogo' class='grid' src='$thumbnail'></a>";
-                    echo "<span id='name' class='grid'>$name</span>";
-                    echo "<span id='creator' class='grid'>$creators</span>";
-                    echo "<span id='genre' class='grid'>$genre</span>";
-                echo "</div>";
+                ?>
+                <div id='appendGame'>
+                    <a class='game-logo-container' href='index.php?filename=game&gameId=<?php echo $gameId ?>'>
+                        <img class='grid gameLogo' src='<?php echo $thumbnail ?>'>
+                    </a>
+                    <span class='grid name'><?php echo htmlspecialchars($name) ?></span>
+                    <span class='grid creator'><?php echo htmlspecialchars($creators) ?></span>
+                    <span class='grid genre'><?php echo htmlspecialchars($genre) ?></span>
+                </div>
+                <?php
             }
             ?>
         </div>

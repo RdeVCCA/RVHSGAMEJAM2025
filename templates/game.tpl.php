@@ -37,25 +37,59 @@
         ?>
         <div class="center">
             <div id='Header'>
-                <h1><?php echo $name ?></h1>
-                <div><?php echo $genre ?></div>
-                <div>Created by <?php echo $creators ?></div>
+                <h1><?php echo htmlspecialchars($name) ?></h1>
+                <div><?php echo htmlspecialchars($genre) ?></div>
+                <div>Created by <?php echo htmlspecialchars($creators) ?></div>
             </div>
             
             <div id='game-carousel'>
-                <a href='index.php?filename=game&gameId=1'><div id='startArrow'>&#x2190;</div></a>
                 <?php
+                if ($trailer && $thumbnail) {
+                    ?>
+                    <a href='#' onclick='update()'><div id='startArrow'>&#x2190;</div></a>
+                    <?php
+                }
                 if ($trailer) {
                     ?>
-                    <iframe width='560' height='315' src='<?php echo $trailer ?>'></iframe>
+                    <iframe id='trailer' class='thumbnail' src='<?php echo $trailer ?>'></iframe>
                     <?php
-                } else {
+                }
+                if ($thumbnail) {
                     ?>
-                    <img class='thumbnail' src='<?php echo $thumbnail ?>'>
+                    <img id='thumbnail' class='thumbnail' src='<?php echo $thumbnail ?>'>
+                    <?php
+                }
+                if ($trailer && $thumbnail) {
+                    ?>
+                    <a href='#' onclick='update()'><div id='endArrow'>&#x2192;</div></a>
                     <?php
                 }
                 ?>
-                <a href='index.php?filename=game&gameId=1'><div id='endArrow'>&#x2192;</div></a>
+                <script>
+                let trailer = document.getElementById("trailer");
+                let thumbnail = document.getElementById("thumbnail");
+                let leftArrow = document.getElementById("startArrow");
+                let rightArrow = document.getElementById("endArrow");
+                
+                let trailerSelected = true;
+
+                function update() {
+                    if (trailerSelected) {
+                        leftArrow.style.display = "none";
+                        thumbnail.style.display = "none";
+                        rightArrow.style.display = "unset";
+                        trailer.style.display = "unset";
+                    } else {
+                        leftArrow.style.display = "unset";
+                        thumbnail.style.display = "unset";
+                        rightArrow.style.display = "none";
+                        trailer.style.display = "none";
+                    }
+                    trailerSelected = !trailerSelected;
+                }
+
+                update();
+                </script>
             </div>
 
             <a href="<?php echo $link ?>">
@@ -114,9 +148,9 @@
                     <div class="comment">
                         <div class="commenter">
                             <img class='pfp' src='<?php echo $comment['pfp']?>'>
-                            <div><?php echo $comment['username'] ?></div>
+                            <div><?php echo htmlspecialchars($comment['username']) ?></div>
                         </div>
-                        <div><?php echo $comment['comment'] ?></div>
+                        <div><?php echo htmlspecialchars($comment['comment']) ?></div>
                     </div>
                     <?php
                 }

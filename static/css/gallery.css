@@ -15,28 +15,31 @@ body{
     margin: auto;
 }
 
-#creator{
+.creator{
     grid-row: 3;
 }
+
 .game-logo-container{
     grid-column-start: 1;
     grid-column-end: 4;
 }
-#gameLogo{
+
+.gameLogo{
     width: 100%;
     aspect-ratio: 16/9;
+    object-fit: cover;
     border-radius: 0.5rem;
-    transition: scale 1s, box-shadow 0.5s;
+    transition: scale 0.5s, box-shadow 0.5s;
 }
 
-#gameLogo:hover{
-    border-radius: 0.8rem;
-    box-shadow: 0rem 0rem 1rem rgba(255, 255, 255, 0.712);
+.gameLogo:hover{
+    /* filter: brightness(0.8); */
+    box-shadow: 0rem 0rem 0.8rem rgba(255, 255, 255, 0.712);
     cursor: pointer;
-    scale: 1.1;
+    scale: 1.05;
 }
 
-#genre{
+.genre{
     grid-row-start: 2;
     grid-row-end: 4;
     margin: auto 15%;
@@ -46,7 +49,7 @@ body{
     font-size: 1em;
 }
 
-#name{
+.name{
     grid-row: 2;
     margin: 3% 0;
     font-weight: bold;
@@ -59,8 +62,6 @@ body{
         width: 40vw;
     }
     
-
-
     body{
         font-size: 0.6rem;
     }
@@ -69,11 +70,11 @@ body{
         font-size: 2rem;
     }
 
-    #name{
+    .name{
         margin: 0.5rem 0rem 0 0.3rem;
     }
 
-    #creator{
+    .creator{
         margin: 0 0.3rem;
     }
 }

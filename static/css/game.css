@@ -89,9 +89,11 @@ h2{
 }
 
 .thumbnail{
+    height: 50vh;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     max-width: 80vw;
-    max-height: 50vh;
-    margin: 1rem auto;
+    margin: 1rem;
 }
 
 .inline{
@@ -193,6 +195,7 @@ textarea{
 #game-carousel{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 #Theme{
