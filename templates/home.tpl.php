@@ -34,7 +34,7 @@
                 </div>
                 <div class="container-image">
                     <img id="image-team" class="center-h" src="static/img/team.webp">
-                    <a href="https://forms.gle/YiPxeeYy15nnUFm7A" class="center-h flex-image-button fade-bottom paused">Sign Up</a>
+                    <a href="https://forms.gle/Va3WKpSuwXPjFjSS8" class="center-h flex-image-button fade-bottom paused">Sign Up</a>
                 </div>
             </div>
         </div>
@@ -309,7 +309,7 @@
         <div class="spacer"></div>
 
         <!-- sign up button -->
-        <a href="https://forms.gle/YiPxeeYy15nnUFm7A" class="center-h center-v signup-button" style = "margin-bottom:2em;"><span>Sign Up</span></a>
+        <a href="https://forms.gle/Va3WKpSuwXPjFjSS8" class="center-h center-v signup-button" style = "margin-bottom:2em;"><span>Sign Up</span></a>
         <div class="spacer"></div>
 
     </div>
