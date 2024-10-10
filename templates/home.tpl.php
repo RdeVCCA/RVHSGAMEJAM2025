@@ -10,9 +10,13 @@
         include "templates/hero.tpl.php";
         include "templates/about.tpl.php";
         include "templates/pastGames.tpl.php";
+
+        if (isset($_SESSION['loginNotAllowed'])) {
+            echo '<script>alert("Sorry! Only students and staff from RVHS can signup!");</script>';
+            $_SESSION['loginNotAllowed'] = null;
+        }
     ?>
     
-
     <div class="page">
         <!-- eligibility and team formation -->
         <h2 class="header-section">Details</h2>

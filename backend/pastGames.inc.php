@@ -21,7 +21,7 @@ function convertToFileLink($name, $year, $type) {
     return $filePath;
 }
 
-$sql = "SELECT * FROM pastgames";
+$sql = "SELECT * FROM pastgames ORDER BY year DESC";
 $result = mysqli_query($conn, $sql);
 $pastGame = [];
 while ($row = mysqli_fetch_assoc($result)) {

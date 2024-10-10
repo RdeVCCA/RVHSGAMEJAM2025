@@ -15,4 +15,14 @@
     <a class="header-item <?php if ($currentPage === 'gallery') { echo 'active'; } ?>" href="index.php?filename=gallery">
         Last Gamejam's Games
     </a>
+    <a class="header-item <?php if ($currentPage === 'login') { echo 'active'; } ?>" href="index.php?filename=login">
+        <?php
+        if (isset($_SESSION['userPicture'])) {
+            $userPicture = $_SESSION['userPicture'];
+            echo "<img class='navbar-profile-picture' src='$userPicture'>";
+        } else {
+            echo 'Login';
+        }
+        ?>
+    </a>
 </nav>

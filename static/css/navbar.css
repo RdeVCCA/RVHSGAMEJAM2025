@@ -23,7 +23,11 @@
 
 .header-logo{
     width:2em;
-    height:2m;
+}
+
+.navbar-profile-picture {
+    width: 2em;
+    border-radius: 50%;
 }
 
 .header-item{

@@ -1,5 +1,5 @@
 <?php
-    function makeNewRating($id) {
+    function makeNewRating($id, $rating = 0) {
         ?>
         <style>
             .rating-<?php echo $id ?> {
@@ -28,19 +28,17 @@
             }
         </style>
 
-
         <?php
         echo "<div class='rating-$id'>";
-            echo "<input type='radio' id='star5-$id' name='rating-$id' value='5'>";
-            echo "<label for='star5-$id'>&#9733;</label>";
-            echo "<input type='radio' id='star4-$id' name='rating-$id' value='4'>";
-            echo "<label for='star4-$id'>&#9733;</label>";
-            echo "<input type='radio' id='star3-$id' name='rating-$id' value='3'>";
-            echo "<label for='star3-$id'>&#9733;</label>";
-            echo "<input type='radio' id='star2-$id' name='rating-$id' value='2'>";
-            echo "<label for='star2-$id'>&#9733;</label>";
-            echo "<input type='radio' id='star1-$id' name='rating-$id' value='1'>";
-            echo "<label for='star1-$id'>&#9733;</label>";
+            for ($i = 5; $i >= 1; $i--) {
+                if ($i === $rating) {
+                    echo "<input type='radio' id='star$i-$id' name='rating-$id' value='$i' checked>";
+                    echo "<label for='star$i-$id'>&#9733;</label>";
+                } else {
+                    echo "<input type='radio' id='star$i-$id' name='rating-$id' value='$i'>";
+                    echo "<label for='star$i-$id'>&#9733;</label>";
+                }
+            }
         echo "</div>";
     }
 ?>
