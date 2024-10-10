@@ -3,11 +3,13 @@
         <script src = "static/js/game.js"></script>
     </head>
 
-
     <body>
         <?php
             include 'templates/navbar.tpl.php';
             include 'backend/pastGames.inc.php';
+            include 'templates/stars.tpl.php';
+
+            // get game info
             $gameId = $_GET['gameId'];
 
             $gameSql = 'SELECT name, description, genre, creators, link, trailer, year FROM pastgames WHERE gameId = ?';
@@ -20,6 +22,7 @@
 
             $thumbnail = convertToFileLink($name, $year, 1);
 
+            // get comment info
             $commentSql = 'SELECT pfp, username, `comment` FROM comments LEFT JOIN users ON comments.userId = users.userId WHERE gameId = ?';
             $commentPrepared = $conn->prepare($commentSql);
             $commentPrepared->bind_param('i', $gameId);
@@ -34,6 +37,50 @@
                     ];
             }
             $commentPrepared->free_result();
+
+            // handle POST requests from the 2 forms below
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $ratingOverall = $_POST['rating-overall'];
+                $ratingRelated = $_POST['rating-related'];
+                $ratingAesthetic = $_POST['rating-aesthetic'];
+                $ratingFun = $_POST['rating-fun'];
+                $comment = $_POST['comment'];
+            
+                if ($ratingOverall && $ratingRelated && $ratingAesthetic && $ratingFun) {
+                    if ($exist) {
+                        $sql = 'UPDATE ratings SET MainRating = ?, ThemeRating = ?, AestheticRating = ?, FunRating = ? WHERE UserEmail = ? AND gameName = ?';
+                        $stmt = prepared_query($conn, $sql, [$ratings[0], $ratings[1], $ratings[2], $ratings[3], $userEmail, $gameName], 'ssssss');
+                        mysqli_stmt_close($stmt);
+                    } else {
+                        $sql = 'SELECT COUNT(*) FROM ratings';
+                        $coun = ($conn ->query($sql))->fetch_all();
+                            foreach($coun as $cou){
+                                foreach($cou as $co){
+                                    $count = $co; //array to string conversion
+                                }
+                            }
+        
+                        $sql = 'INSERT INTO ratings VALUES (?, ?, ?, ?, ?, ?, ?)';
+                    
+                        $stmt = prepared_query($conn, $sql, [$count, $userEmail, $gameName, $ratings[0], $ratings[1], $ratings[2], $ratings[3]], 'sssssss');
+                        mysqli_stmt_close($stmt);
+                    }
+                }
+
+                if ($comments != '') {
+                    $sql = 'SELECT COUNT(*) FROM comments';
+                    $coun = ($conn ->query($sql))->fetch_all();
+                        foreach($coun as $cou){
+                            foreach($cou as $co){
+                                $count = $co; //array to string conversion
+                            }
+                        }
+                    $sql = 'INSERT INTO comments VALUES (?, ?, ?, ?)';
+                
+                    $stmt = prepared_query($conn, $sql, [$count + 1, $userEmail, $comments, $gameName], 'ssss');
+                    mysqli_stmt_close($stmt);
+                }
+            }
         ?>
         <div class="center">
             <div id='Header'>
@@ -62,34 +109,34 @@
                 if ($trailer && $thumbnail) {
                     ?>
                     <a href='#' onclick='update()'><div id='endArrow'>&#x2192;</div></a>
+                    <script>
+                    let trailer = document.getElementById("trailer");
+                    let thumbnail = document.getElementById("thumbnail");
+                    let leftArrow = document.getElementById("startArrow");
+                    let rightArrow = document.getElementById("endArrow");
+                
+                    let trailerSelected = true;
+
+                    function update() {
+                        if (trailerSelected) {
+                            leftArrow.style.display = "none";
+                            thumbnail.style.display = "none";
+                            rightArrow.style.display = "unset";
+                            trailer.style.display = "unset";
+                        } else {
+                            leftArrow.style.display = "unset";
+                            thumbnail.style.display = "unset";
+                            rightArrow.style.display = "none";
+                            trailer.style.display = "none";
+                        }
+                        trailerSelected = !trailerSelected;
+                    }
+
+                    update();
+                    </script>
                     <?php
                 }
                 ?>
-                <script>
-                let trailer = document.getElementById("trailer");
-                let thumbnail = document.getElementById("thumbnail");
-                let leftArrow = document.getElementById("startArrow");
-                let rightArrow = document.getElementById("endArrow");
-                
-                let trailerSelected = true;
-
-                function update() {
-                    if (trailerSelected) {
-                        leftArrow.style.display = "none";
-                        thumbnail.style.display = "none";
-                        rightArrow.style.display = "unset";
-                        trailer.style.display = "unset";
-                    } else {
-                        leftArrow.style.display = "unset";
-                        thumbnail.style.display = "unset";
-                        rightArrow.style.display = "none";
-                        trailer.style.display = "none";
-                    }
-                    trailerSelected = !trailerSelected;
-                }
-
-                update();
-                </script>
             </div>
 
             <a href="<?php echo $link ?>">
@@ -100,47 +147,48 @@
         <div id='Description'><?php echo $desc ?></div>
         
         <div class = "margin">
-            <form action = 'index.php?filename=game&game=$gameId&PV=$PV_index' method = 'POST'>
+            <!-- review form -->
+            <form action='<?php echo "index.php?filename=game&gameId=$gameId" ?>' method='POST'>
+                <script>
+                function getRating(id) {
+                    // returns string
+                    return document.querySelector(`input[name="rating-${id}"]:checked`).value;
+                }
+                </script>
                 <h2>Rate</h2>
-                <img src = "static/img/star.png" class = "Stars" id = "Star1" onmouseover="highlightStar(1)" onmouseout="unhighlightStar(1)" onclick="permanentHighlight(1), calculateRatings(1)">
-                <img src = "static/img/star.png" class = "Stars" id = "Star2" onmouseover="highlightStar(2)" onmouseout="unhighlightStar(2)" onclick="permanentHighlight(2), calculateRatings(2)">
-                <img src = "static/img/star.png" class = "Stars" id = "Star3" onmouseover="highlightStar(3)" onmouseout="unhighlightStar(3)" onclick="permanentHighlight(3), calculateRatings(3)">
-                <img src = "static/img/star.png" class = "Stars" id = "Star4" onmouseover="highlightStar(4)" onmouseout="unhighlightStar(4)" onclick="permanentHighlight(4), calculateRatings(4)">
-                <img src = "static/img/star.png" class = "Stars" id = "Star5" onmouseover="highlightStar(5)" onmouseout="unhighlightStar(5)" onclick="permanentHighlight(5), calculateRatings(5)">
+                <!-- name=rating-overall -->
+                <?php makeNewRating('overall') ?>
                 <div class = "ratings"> 
-                    <div id = "Criteria1">Relatedness to Theme</div>
-                    <div id = "Theme">
-                        <img src = "static/img/star.png" class = "Star" id = "Star6" onmouseover="highlightStar(6)" onmouseout="unhighlightStar(6)" onclick=" permanentHighlight(6), calculateRatings(1)">
-                        <img src = "static/img/star.png" class = "Star" id = "Star7" onmouseover="highlightStar(7)" onmouseout="unhighlightStar(7)" onclick="permanentHighlight(7), calculateRatings(2)">
-                        <img src = "static/img/star.png" class = "Star" id = "Star8" onmouseover="highlightStar(8)" onmouseout="unhighlightStar(8)" onclick="permanentHighlight(8), calculateRatings(3)">
-                        <img src = "static/img/star.png" class = "Star" id = "Star9" onmouseover="highlightStar(9)" onmouseout="unhighlightStar(9)" onclick="permanentHighlight(9), calculateRatings(4)">
-                        <img src = "static/img/star.png" class = "Star" id = "Star10" onmouseover="highlightStar(10)" onmouseout="unhighlightStar(10)" onclick="permanentHighlight(10), calculateRatings(5)">
+                    Relatedness to Theme
+                    <div id="related">
+                        <!-- name=rating-related -->
+                        <?php makeNewRating('related') ?>
                     </div>
-                    <div id = "Criteria2">Aesthetic</div>
-                    <div id = "Aesthetic">
-                        <img src = "static/img/star.png" class = "Star" id = "Star11" onmouseover="highlightStar(11)" onmouseout="unhighlightStar(11)" onclick="permanentHighlight(11), calculateRatings(1)">
-                        <img src = "static/img/star.png" class = "Star" id = "Star12" onmouseover="highlightStar(12)" onmouseout="unhighlightStar(12)" onclick="permanentHighlight(12), calculateRatings(2)">
-                        <img src = "static/img/star.png" class = "Star" id = "Star13" onmouseover="highlightStar(13)" onmouseout="unhighlightStar(13)" onclick="permanentHighlight(13), calculateRatings(3)">
-                        <img src = "static/img/star.png" class = "Star" id = "Star14" onmouseover="highlightStar(14)" onmouseout="unhighlightStar(14)" onclick="permanentHighlight(14), calculateRatings(4)">
-                        <img src = "static/img/star.png" class = "Star" id = "Star15" onmouseover="highlightStar(15)" onmouseout="unhighlightStar(15)" onclick="permanentHighlight(15), calculateRatings(5)">
+                    Aesthetic
+                    <div id="aesthetic">
+                        <!-- name=rating-aesthetic -->
+                        <?php makeNewRating('aesthetic') ?>
                     </div>
-                    <div id = "Criteria3">Fun</div>
-                    <div id = "Fun">
-                        <img src = "static/img/star.png" class = "Star" id = "Star16" onmouseover="highlightStar(16)" onmouseout="unhighlightStar(16)" onclick="permanentHighlight(16), calculateRatings(1)">
-                        <img src = "static/img/star.png" class = "Star" id = "Star17" onmouseover="highlightStar(17)" onmouseout="unhighlightStar(17)" onclick="permanentHighlight(17), calculateRatings(2)">
-                        <img src = "static/img/star.png" class = "Star" id = "Star18" onmouseover="highlightStar(18)" onmouseout="unhighlightStar(18)" onclick="permanentHighlight(18), calculateRatings(3)">
-                        <img src = "static/img/star.png" class = "Star" id = "Star19" onmouseover="highlightStar(19)" onmouseout="unhighlightStar(19)" onclick="permanentHighlight(19), calculateRatings(4)">
-                        <img src = "static/img/star.png" class = "Star" id = "Star20" onmouseover="highlightStar(20)" onmouseout="unhighlightStar(20)" onclick="permanentHighlight(20), calculateRatings(5)">
+                    Fun
+                    <div id="fun">
+                        <!-- name=rating-fun -->
+                        <?php makeNewRating('fun') ?>
                     </div>
-                    <input type = 'hidden' id = 'currentRatings' name = 'R'>
-                    <button class = 'submit' type = 'submit'>Submit ratings</button>
+                </div>
+                <button class='submit' type='submit'>Submit ratings</button>
                 </div>
             </form>
+
+            <!-- comment form -->
+            <form action='<?php echo "index.php?filename=game&gameId=$gameId" ?>' method='POST'>
                 <h2>Comments</h2>
-                <label for = "commentInput">Create a comment:</label>
-                <textarea placeholder = "Enter a comment" id = "commentInput" name = "comment"></textarea>
-                <button class = 'submit' type = 'submit'>Add Comment</button>
+                <label for="commentInput">Create a comment:</label>
+                <!-- name=comment -->
+                <textarea placeholder="Enter a comment" id="commentInput" name="comment"></textarea>
+                <button class='submit' type='submit'>Add Comment</button>
             </form>
+
+            <!-- show all comments -->
             <div class="comment-container">
                 <?php
                 foreach ($comments as $comment) {

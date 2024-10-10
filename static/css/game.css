@@ -19,20 +19,20 @@ a{
     overflow-wrap: break-word;
 }
 
-#Criteria1{
+#related{
     grid-row: 1;
     grid-column: 1;
     font-family: 'Josefin Sans', sans-serif;
     margin-top: 0.5rem;
 }
 
-#Criteria2{
+#aesthetic{
     grid-row: 2;
     grid-column: 1;
     font-family: 'Josefin Sans', sans-serif;
 }
 
-#Criteria3{
+#fun{
     grid-row: 3;
     grid-column: 1;
     font-family: 'Josefin Sans', sans-serif;
@@ -137,6 +137,7 @@ h2{
 }
 
 .ratings{
+    font-family: Inter;
     display: grid;
     grid-template-columns: 30% 70%;
     grid-template-rows: auto auto auto;
@@ -144,19 +145,15 @@ h2{
     margin-top: 1em;
 }
 
-.Star{
+.star{
     width: 2vw;
 }
 
-.Star:hover{
-    cursor: pointer;
-}
-
-.Stars{
+.big-star{
     width: 3vw;
 }
 
-.Stars:hover{
+.star:hover, .big-star:hover{
     cursor: pointer;
 }
 
