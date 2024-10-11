@@ -1,55 +1,38 @@
 <?php
-include 'backend/camelCase.inc.php';
+include 'backend/gameFileUtils.inc.php';
+include 'backend/Defaults/connect.php';
 
-function convertToFileLink($name, $year, $type) {
-    // `type` is one of 3 values, specify type to get different files:
-    // 0 = video, 1 = image, 2 = logo
-    $mimeTypes = [
-        "mp4",
-        "png",
-        "png"
-    ];
-    $folders = [
-        "videos",
-        "thumbnails",
-        "logos"
-    ];
-    $fileMimeType = $mimeTypes[$type];
-    $folder = $folders[$type];
-    $fileName = convertToCamelCase($name).".".$fileMimeType;
-    $filePath = "static/pastGames/".$year."/".$folder."/".$fileName;
-    return $filePath;
-}
+$pastGamesRaw = sqlQueryAllObjects(
+    $conn,
+    'SELECT * FROM pastgames ORDER BY year DESC'
+);
 
-$sql = "SELECT * FROM pastgames ORDER BY year DESC";
-$result = mysqli_query($conn, $sql);
-$pastGame = [];
-while ($row = mysqli_fetch_assoc($result)) {
-    $year = $row['year'];
-    $new = [
-        "title" => $row['name'],
-        "link" => $row['link'],
-        "description" => $row['description'],
-        "creators" => $row['creators']
+$pastGames = [];
+foreach ($pastGamesRaw as $game) {
+    $year = $game->year;
+    $gameInfo = [
+        'title' => $game->name,
+        'link' => $game->link,
+        'description' => $game->description,
+        'creators' => $game->creators
     ];
-    $logo = convertToFileLink($row['name'], $year, 2); // get logo
-    if (file_exists($logo)){
-        $new['logo'] = $logo;
+    $logo = convertToFileLink($game->name, $year, 2); // get logo
+    if (file_exists($logo)) {
+        $gameInfo['logo'] = $logo;
     }
-    $video = convertToFileLink($row['name'], $year, 0); // get video
-    if (file_exists($video)){
-        $new['video'] = $video;
+    $video = convertToFileLink($game->name, $year, 0); // get video
+    if (file_exists($video)) {
+        $gameInfo['video'] = $video;
     }
-    $thumbnail = convertToFileLink($row['name'], $year, 1); // get thumbnail
-    if (file_exists($thumbnail)){
-        $new['thumbnail'] = $thumbnail;
+    $thumbnail = convertToFileLink($game->name, $year, 1); // get thumbnail
+    if (file_exists($thumbnail)) {
+        $gameInfo['thumbnail'] = $thumbnail;
     }
     
+    // if (!isset($pastGame[$year])){
+    //     $pastGame[$year] = [];
+    // }
 
-    if (!isset($pastGame[$year])){
-        $pastGame[$year] = [];
-    }
-
-    $pastGame[$year][$row["gameId"]] = $new;
+    $pastGames[$year][$game->gameId] = $gameInfo;
 }
 ?>

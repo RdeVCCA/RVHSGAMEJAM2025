@@ -5,26 +5,28 @@
     <body>    
         <?php
             include "templates/navbar.tpl.php";
-            include "backend/pastGames.inc.php";
+            // include "backend/pastGames.inc.php";
+            include 'backend/gameFileUtils.inc.php';
+            include 'backend/Defaults/connect.php';
         ?>
         <h1>Last Gamejam's Games</h1>
         <div id = "appendGames">
             <?php
             // sql query to select games from previous year only
-            $sql = 'SELECT gameId, name, description, genre, creators, link, year FROM pastgames WHERE year = (SELECT MAX(year) FROM pastgames)';
-            $prepared = $conn->prepare($sql);
-            $prepared->execute();
-            $prepared->bind_result($gameId, $name, $desc, $genre, $creators, $link, $year);
-            while ($prepared->fetch()) {
-                $thumbnail = convertToFileLink($name, $year, 1);
+            $pastYearGames = sqlQueryAllObjects(
+                $conn,
+                'SELECT gameId, name, description, genre, creators, link, year FROM pastgames WHERE year = (SELECT MAX(year) FROM pastgames)'
+            );
+            foreach ($pastYearGames as $game) {
+                $thumbnail = convertToFileLink($game->name, $game->year, 1);
                 ?>
                 <div id='appendGame'>
-                    <a class='game-logo-container' href='index.php?filename=game&gameId=<?php echo $gameId ?>'>
+                    <a class='game-logo-container' href='index.php?filename=game&gameId=<?php echo $game->gameId ?>'>
                         <img class='grid gameLogo' src='<?php echo $thumbnail ?>'>
                     </a>
-                    <span class='grid name'><?php echo htmlspecialchars($name) ?></span>
-                    <span class='grid creator'><?php echo htmlspecialchars($creators) ?></span>
-                    <span class='grid genre'><?php echo htmlspecialchars($genre) ?></span>
+                    <span class='grid name'><?php echo htmlspecialchars($game->name) ?></span>
+                    <span class='grid creator'><?php echo htmlspecialchars($game->creators) ?></span>
+                    <span class='grid genre'><?php echo htmlspecialchars($game->genre) ?></span>
                 </div>
                 <?php
             }

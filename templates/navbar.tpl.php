@@ -1,15 +1,27 @@
 <nav class="header">
     <?php
-    if (!isset($_GET['fileName'])) {
+    if (!isset($_GET['filename'])) {
         $currentPage = 'index';
-    } elseif ($_GET['fileName'] === 'gallery') {
-        $currentPage = 'gallery';
+    } else {
+        switch ($_GET['filename']) {
+            case 'gallery':
+                $currentPage = 'gallery';
+            break;
+
+            case 'login':
+                $currentPage = 'login';
+            break;
+
+            case 'game':
+                $currentPage = 'game';
+            break;
+        }
     }
     ?>
     <a class="header-item" href="https://rdev.x10.mx" target="_blank">
         <img class="header-logo" src="static/img/rdev.webp" alt="RdeV Website"> 
     </a>
-    <a class="header-item <?php if ($currentpage === 'index') { echo 'active'; } ?>" href="index.php">
+    <a class="header-item <?php if ($currentPage === 'index') { echo 'active'; } ?>" href="index.php">
         Home
     </a>
     <a class="header-item <?php if ($currentPage === 'gallery') { echo 'active'; } ?>" href="index.php?filename=gallery">

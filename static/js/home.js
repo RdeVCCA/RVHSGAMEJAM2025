@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.5 }); // Adjust the threshold as needed
 
   const observeElements = (elements) => {
-      elements.forEach(el => {
-        observer.observe(el);
-      });
-    };
+    elements.forEach(el => {
+      observer.observe(el);
+    });
+  };
   
   const paused = document.querySelectorAll('.paused');
 

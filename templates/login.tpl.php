@@ -1,14 +1,15 @@
 <?php
     include '../../private/rvhsgamejam_secrets.inc.php';
+    include 'backend/Defaults/connect.php';
     require_once 'includes/google-api-php-client--PHP7.4/vendor/autoload.php';
     
     // $redirectUri = 'http://localhost/RVHSGAMEJAM2024/index.php?filename=login';
-    $redirectUri = 'https://rvhsgamejam.x10.mx/index.php?filename=login';
+    // $redirectUri = 'https://rvhsgamejam.x10.mx/index.php?filename=login';
 
     $client = new Google_Client();
     $client->setClientId(GOOGLE_CLIENT_ID);
     $client->setClientSecret(GOOGLE_CLIENT_SECRET);
-    $client->setRedirectUri($redirectUri);
+    $client->setRedirectUri(GOOGLE_REDIRECT_URI);
     $client->addScope("email");
     $client->addScope("profile");
     $googleUrl = $client->createAuthUrl();
@@ -21,7 +22,7 @@
         session_start();
 
         $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-        if ($token['error']) {
+        if (isset($token['error'])) {
             header("Location: index.php");
             die();
         }
@@ -41,17 +42,18 @@
             $_SESSION['userPicture'] = $userPicture;
 
             // add user to database if user isn't already inside
-            $userExistSql = 'SELECT userId FROM users WHERE email = ?';
-            $userExistPrepared = $conn->prepare($userExistSql);
-            $userExistPrepared->bind_param('s', $userEmail);
-            $userExistPrepared->execute();
-            $userExistPrepared->bind_result($userExist);
-            $userExistPrepared->fetch();
+            $userExist = sqlQueryObject(
+                $conn,
+                'SELECT userId FROM users WHERE email = ?',
+                [$userEmail]
+            )->userId;
 
             if (!isset($userExist)) {
-                $userInsertSql = 'INSERT INTO users(email, username, pfp) VALUES (?, ?, ?)';
-                $userInsertStmt = prepared_query($conn, $userInsertSql, [$userEmail, $userName, $userPicture], 'sss');
-                mysqli_stmt_close($userInsertStmt);
+                sqlQueryObject(
+                    $conn,
+                    'INSERT INTO users(email, username, pfp) VALUES (?, ?, ?)',
+                    [$userEmail, $userName, $userPicture]
+                );
             }
         } else {
             $_SESSION['loginNotAllowed'] = true;

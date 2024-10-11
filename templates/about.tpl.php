@@ -4,18 +4,20 @@
         <div class="container-content center-h order-reverse">
             <div class="carousel fade-right paused">
                 <?php
-                foreach ($pastGame as $year => $games)
-                foreach ($games as $i => $game) {
-                    if (!isset($game['thumbnail'])) {
-                        continue;
-                    }
-                    $thumbnail = $game['thumbnail'];
+                foreach ($pastGames as $year => $games) {
+                    foreach ($games as $i => $game) {
+                        if (!isset($game['thumbnail'])) {
+                            continue;
+                        }
+                        $thumbnail = $game['thumbnail'];
                     ?>
                     <div class="carousel-item">
-                            <img class="carousel-image" src="<?php echo $thumbnail ?>">
+                        <img class="carousel-image" src="<?php echo $thumbnail ?>">
                     </div>
                     <?php
-                } ?>
+                    }
+                }
+                ?>
             </div>
             <div class="container-text fade-left paused">
                 <p class="header-content text-align-left">

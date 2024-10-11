@@ -20,7 +20,7 @@
             <td>Uniqueness</td>
             <td>Game has many unique gameplay elements.</td>
             <td>Game is somewhat unique, but has many generic gameplay mechanics.</td>
-            <td>Game looks like a generic type of game with no unique elements.</td>
+            <td>Game looks generic with no unique elements.</td>
         </tr>
         <!-- Add new row for Subtheme Relatedness -->
 
@@ -35,7 +35,7 @@
             <td>Game sprites are original and complement the theme well.</td>
             <td>
                 Attempt made at making game aesthetically pleasing,
-                but typically either is directly copied from online sources,
+                but is either directly copied from online sources,
                 or does not complement the theme well.
             </td>
             <td>Little to no sprites added to the game.</td>
@@ -47,12 +47,12 @@
                 Game is playable, but lacks user-friendly elements.
                 Games with buggy physics may also end up in this category.
             </td>
-            <td>Game is buggy is hardly playable or very unenjoyable due to messy or delayed controls.</td>
+            <td>Game is buggy, hardly playable or very unenjoyable due to messy or delayed controls.</td>
         </tr>
         <tr>
             <td>Ease of Learning</td>
-            <td>Game is easily understood with clear instructions and guide.</td>
-            <td>Game is can be easily understood for most people, but instructions still sometimes unclear.</td>
+            <td>Game is easily understood with clear instructions.</td>
+            <td>Game is can be easily understood for most people, but instructions are sometimes unclear.</td>
             <td>Game is hard to understand and learn, often leaving users confused on what to do and how the game works.
             </td>
         </tr>

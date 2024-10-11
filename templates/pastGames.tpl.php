@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="static/css/pastGames.css" />
 <link rel="stylesheet" href="static/css/shared.css" />
 <div class="past-games">
-    <h2>Past Gamejams</h2>
+    <h2>All Games</h2>
     <div class="select-year-container">
         <?php
             $first = true;
-            foreach ($pastGame as $year => $value) {
+            foreach ($pastGames as $year => $value) {
                 if ($first) {
                     echo "<button class='select-year' data-selected='true'>$year</button>";
                     $first = false;

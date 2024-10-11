@@ -6,112 +6,129 @@
     <body>
         <?php
             include 'templates/navbar.tpl.php';
-            include 'backend/pastGames.inc.php';
+            include 'backend/gameFileUtils.inc.php';
             include 'templates/stars.tpl.php';
+            include 'backend/Defaults/connect.php';
+
+            // there are 2 parts to this chunk of php:
+            // the first chunk gets game info and displays it to the user
+            // the second chunk runs on the server and handles POST requests for ratings
+
+            $gameId = $_GET['gameId'];
+            $userEmail = $_SESSION['userEmail'];
 
             // get game info
-            $gameId = $_GET['gameId'];
+            $gameInfo = sqlQueryObject(
+                $conn,
+                'SELECT name, description, genre, creators, link, trailer, year FROM pastgames WHERE gameId = ?',
+                [$gameId]
+            );
 
-            $gameSql = 'SELECT name, description, genre, creators, link, trailer, year FROM pastgames WHERE gameId = ?';
-            $gamePrepared = $conn->prepare($gameSql);
-            $gamePrepared->bind_param('i', $gameId);
-            $gamePrepared->execute();
-            $gamePrepared->bind_result($name, $desc, $genre, $creators, $link, $trailer, $year);
-            $gamePrepared->fetch();
-            $gamePrepared->free_result();
+            $thumbnail = convertToFileLink($gameInfo->name, $gameInfo->year, 1);
 
-            $thumbnail = convertToFileLink($name, $year, 1);
+            $thumbnailExists = file_exists($thumbnail);
+            $trailerExists = isset($gameInfo->trailer);
 
             // get comment info
-            $commentSql = 'SELECT pfp, username, `comment` FROM comments LEFT JOIN users ON comments.userId = users.userId WHERE gameId = ?';
-            $commentPrepared = $conn->prepare($commentSql);
-            $commentPrepared->bind_param('i', $gameId);
-            $commentPrepared->execute();
-            $commentPrepared->bind_result($commenterPfp, $commenterUsername, $comment);
-            $comments = [];
-            while ($commentPrepared->fetch()) {
-                $comments[] = [
-                        'pfp' => $commenterPfp,
-                        'username' => $commenterUsername,
-                        'text' => $comment,
-                    ];
-            }
-            $commentPrepared->free_result();
-            $userEmail = $_SESSION['userEmail'];
+            $commentInfo = sqlQueryAllObjects(
+                $conn,
+                'SELECT pfp, username, `comment` FROM comments LEFT JOIN users ON comments.userId = users.userId WHERE gameId = ?',
+                [$gameId]
+            );
 
             // handle POST requests from the 2 forms below
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $userId = sqlQueryObject(
+                    $conn,
+                    'SELECT userId FROM users WHERE email = ?',
+                    [$userEmail]
+                )->userId;
+
+                // check if the POST request is for ratings
                 $ratingOverall = $_POST['rating-overall'];
                 $ratingRelated = $_POST['rating-related'];
                 $ratingAesthetic = $_POST['rating-aesthetic'];
                 $ratingFun = $_POST['rating-fun'];
-                $comment = $_POST['comment'];
-
-                $userIdSql = 'SELECT userId FROM users WHERE email = ?';
-                $userIdPrepared = $conn->prepare($userIdSql);
-                $userIdPrepared->bind_param('s', $userEmail);
-                $userIdPrepared->execute();
-                $userIdPrepared->bind_result($userId);
-                $userIdPrepared->fetch();
-                $userIdPrepared->free_result();
                 
-                $existSql = 'SELECT Id FROM ratings WHERE userId = (SELECT userId FROM users WHERE email = ?) AND gameId = ?';
-                $existPrepared = $conn->prepare($existSql);
-                $existPrepared->bind_param('si', $userEmail, $gameId);
-                $existPrepared->execute();
-                $existPrepared->bind_result($exist);
-                $existPrepared->fetch();
-                $existPrepared->free_result();
-                
-                if (isset($ratingOverall) && isset($ratingRelated) && isset($ratingAesthetic) && isset($ratingFun)) {
-                    if (isset($exist)) {
-                        $sql = 'UPDATE ratings SET MainRating = ?, ThemeRating = ?, AestheticRating = ?, FunRating = ? WHERE userId = ? AND gameId = ?';
-                        $stmt = prepared_query($conn, $sql, [$ratingOverall, $ratingRelated, $ratingAesthetic, $ratingFun, $userId, $gameId], 'iiiiss');
-                        mysqli_stmt_close($stmt);
+                if (
+                    isset($ratingOverall) && isset($ratingRelated) && isset($ratingAesthetic) && isset($ratingFun)
+                    && $ratingOverall != 0 && $ratingRelated != 0 && $ratingAesthetic != 0 && $ratingFun != 0
+                ) {
+                    // check if the user has already rated
+                    $ratingExist = isset(
+                        sqlQueryObject(
+                            $conn,
+                            'SELECT Id FROM ratings WHERE userId = (SELECT userId FROM users WHERE email = ?) AND gameId = ?',
+                            [$userEmail, $gameId]
+                        )
+                        ->userId
+                    );
+                    // if a previous rating exists we overwrite that rating,
+                    // if not we make a new rating
+                    if (isset($ratingExist)) {
+                        sqlQueryObject(
+                            $conn,
+                            'UPDATE ratings SET MainRating = ?, ThemeRating = ?, AestheticRating = ?, FunRating = ? WHERE userId = ? AND gameId = ?',
+                            [$ratingOverall, $ratingRelated, $ratingAesthetic, $ratingFun, $userId, $gameId]
+                        );
                     } else {
-                        $ratingInsertSql = 'INSERT INTO ratings(userId, gameId, MainRating, ThemeRating, AestheticRating, FunRating) VALUES (?, ?, ?, ?, ?, ?)';
-                        $stmt = prepared_query($conn, $ratingInsertSql, [$userId, $gameId, $ratingOverall, $ratingRelated, $ratingAesthetic, $ratingFun], 'ssiiii');
-                        mysqli_stmt_close($stmt);
+                        sqlQueryObject(
+                            $conn,
+                            'INSERT INTO ratings(userId, gameId, MainRating, ThemeRating, AestheticRating, FunRating) VALUES (?, ?, ?, ?, ?, ?)',
+                            [$userId, $gameId, $ratingOverall, $ratingRelated, $ratingAesthetic, $ratingFun]
+                        );
                     }
+                    // redirect to prevent resending form data when the user refreshes the page
+                    header("Location: index.php?filename=game&gameId=$gameId");
+                    die();
                 }
 
-                if (isset($comment) && $comment != '') {
-                    $commentInsertSql = 'INSERT INTO comments(userId, comment, gameId) VALUES (?, ?, ?)';
-                    $stmt = prepared_query($conn, $commentInsertSql, [$userId, $comment, $gameId], 'isi');
-                    mysqli_stmt_close($stmt);
+                // check if the POST request is for comments
+                $comment = $_POST['comment'];
+                if (isset($comment) && $comment !== '' && strlen(trim($comment)) !== 0) {
+                    sqlQueryObject(
+                        $conn,
+                        'INSERT INTO comments(userId, comment, gameId) VALUES (?, ?, ?)',
+                        [$userId, $comment, $gameId]
+                    );
+                    header("Location: index.php?filename=game&gameId=$gameId");
+                    die();
                 }
-
-                header("Location: index.php?filename=game&gameId=$gameId");
-                die();
             }
         ?>
         <div class="center">
             <div id='Header'>
-                <h1><?php echo htmlspecialchars($name) ?></h1>
-                <div><?php echo htmlspecialchars($genre) ?></div>
-                <div>Created by <?php echo htmlspecialchars($creators) ?></div>
+                <h1><?php echo htmlspecialchars($gameInfo->name) ?></h1>
+                <div><?php echo htmlspecialchars($gameInfo->genre) ?></div>
+                <div>Created by <?php echo htmlspecialchars($gameInfo->creators) ?></div>
             </div>
             
             <div id='game-carousel'>
                 <?php
-                if ($trailer && $thumbnail) {
+                // show arrows only if both trailer and thumbnail exist
+                if ($trailerExists && $thumbnailExists) {
                     ?>
-                    <a href='#' onclick='update()'><div id='startArrow'>&#x2190;</div></a>
+                    <a href='javascript:void(0)' onclick='update()'><div id='startArrow'>&#x2190;</div></a>
                     <?php
                 }
-                if ($trailer) {
+                
+                if ($trailerExists) {
                     ?>
-                    <iframe id='trailer' class='thumbnail' src='<?php echo $trailer ?>'></iframe>
+                    <iframe id='trailer' class='thumbnail' src='<?php echo $gameInfo->trailer ?>'></iframe>
                     <?php
                 }
-                if ($thumbnail) {
+                if ($thumbnailExists) {
                     ?>
                     <img id='thumbnail' class='thumbnail' src='<?php echo $thumbnail ?>'>
                     <?php
                 }
-                if ($trailer && $thumbnail) {
+                
+                // show arrows only if both trailer and thumbnail exist
+                if ($trailerExists && $thumbnailExists) {
                     ?>
-                    <a href='#' onclick='update()'><div id='endArrow'>&#x2192;</div></a>
+                    <a href='javascript:void(0)' onclick='update()'><div id='endArrow'>&#x2192;</div></a>
+
+                    <!-- js to make the arrows functional -->
                     <script>
                     let trailer = document.getElementById("trailer");
                     let thumbnail = document.getElementById("thumbnail");
@@ -142,12 +159,12 @@
                 ?>
             </div>
 
-            <a href="<?php echo $link ?>">
+            <a href="<?php echo $gameInfo->link ?>">
                 <div id="gameButton">Play Game</div>
             </a>
         </div>
         
-        <div id='Description'><?php echo $desc ?></div>
+        <div id='Description'><?php echo $gameInfo->description ?></div>
         
         <div class = "margin">
             <?php
@@ -157,31 +174,29 @@
                 <form action='<?php echo "index.php?filename=game&gameId=$gameId" ?>' method='POST'>
                     <h2>Rate</h2>
                     <?php
-                    $ratingSql = 'SELECT MainRating, ThemeRating, AestheticRating, FunRating FROM ratings WHERE userId = (SELECT userId FROM users WHERE email = ?) AND gameId = ?';
-                    $ratingPrepared = $conn->prepare($ratingSql);
-                    $ratingPrepared->bind_param('si', $userEmail, $gameId);
-                    $ratingPrepared->execute();
-                    $ratingPrepared->bind_result($ratingOverall, $ratingRelated, $ratingAesthetic, $ratingFun);
-                    $ratingPrepared->fetch();
-                    $ratingPrepared->free_result();
+                    $rating = sqlQueryObject(
+                        $conn,
+                        'SELECT MainRating main, ThemeRating related, AestheticRating aesthetic, FunRating fun FROM ratings WHERE userId = (SELECT userId FROM users WHERE email = ?) AND gameId = ?',
+                        [$userEmail, $gameId]
+                    );
                     ?>
                     <!-- name=rating-overall -->
-                    <?php makeNewRating('overall', $ratingOverall) ?>
+                    <?php makeNewRating('overall', $rating->main) ?>
                     <div class = "ratings"> 
                         Relatedness to Theme
                         <div id="related">
                             <!-- name=rating-related -->
-                            <?php makeNewRating('related', $ratingRelated) ?>
+                            <?php makeNewRating('related', $rating->related) ?>
                         </div>
                         Aesthetic
                         <div id="aesthetic">
                             <!-- name=rating-aesthetic -->
-                            <?php makeNewRating('aesthetic', $ratingAesthetic) ?>
+                            <?php makeNewRating('aesthetic', $rating->aesthetic) ?>
                         </div>
                         Fun
                         <div id="fun">
                             <!-- name=rating-fun -->
-                            <?php makeNewRating('fun', $ratingFun) ?>
+                            <?php makeNewRating('fun', $rating->fun) ?>
                         </div>
                     </div>
                     <button class='submit' type='submit'>Submit ratings</button>
@@ -204,18 +219,20 @@
             ?>
 
             <!-- show all comments -->
-            <h2>Reviews</h2>
+            <h2>Comments</h2>
             <div class="comment-container">
                 <?php
-                foreach ($comments as $comment) {
-                    if ($comment['text'] === '') { continue; }
+                foreach ($commentInfo as $comment) {
+                    // hide blank comments because for some reason there are a ton of them in the database
+                    // TODO: hide whitespace comments also (comments that are made of spaces)
+                    if ($comment->comment === '' || strlen(trim($comment->comment)) === 0) { continue; }
                     ?>
                     <div class="comment">
                         <div class="commenter">
-                            <img class='pfp' src='<?php echo $comment['pfp']?>'>
-                            <div><?php echo htmlspecialchars($comment['username']) ?></div>
+                            <img class='pfp' src='<?php echo $comment->pfp ?>'>
+                            <div><?php echo htmlspecialchars($comment->username) ?></div>
                         </div>
-                        <div><?php echo htmlspecialchars($comment['text']) ?></div>
+                        <div><?php echo htmlspecialchars($comment->comment) ?></div>
                     </div>
                     <?php
                 }
