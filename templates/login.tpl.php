@@ -1,5 +1,5 @@
 <?php
-    include '../../private/rvhsgamejam_secrets.inc.php';
+    include '../../../private/rvhsgamejam_secrets.inc.php';
     include 'backend/Defaults/connect.php';
     require_once 'includes/google-api-php-client--PHP7.4/vendor/autoload.php';
     

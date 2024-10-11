@@ -1,5 +1,5 @@
 <?php
-include '../../private/rvhsgamejam_secrets.inc.php';
+include '../../../private/rvhsgamejam_secrets.inc.php';
 $conn = mysqli_connect(DB_SERVERNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 function sqlQueryObject($conn, $stmt, $arg = null) {
