@@ -91,9 +91,10 @@
                         'INSERT INTO comments(userId, comment, gameId) VALUES (?, ?, ?)',
                         [$userId, $comment, $gameId]
                     );
-                    header("Location: index.php?filename=game&gameId=$gameId");
-                    die();
                 }
+                // redirect to prevent resending form data when the user refreshes the page
+                header("Location: index.php?filename=game&gameId=$gameId");
+                die();
             }
         ?>
         <div class="center">
@@ -180,9 +181,12 @@
                         [$userEmail, $gameId]
                     );
                     ?>
-                    <!-- name=rating-overall -->
-                    <?php makeNewRating('overall', $rating->main) ?>
-                    <div class = "ratings"> 
+                    <div class="ratings"> 
+                        <b>Overall</b>
+                        <div id="overall">
+                            <!-- name=rating-overall -->
+                            <?php makeNewRating('overall', $rating->main) ?>
+                        </div>
                         Relatedness to Theme
                         <div id="related">
                             <!-- name=rating-related -->
@@ -204,11 +208,11 @@
 
                 <!-- comment form -->
                 <form action='<?php echo "index.php?filename=game&gameId=$gameId" ?>' method='POST'>
-                    <h2>Comments</h2>
+                    <h2>Comment</h2>
                     <label for="commentInput">Create a comment:</label>
                     <!-- name=comment -->
                     <textarea placeholder="Enter a comment" id="commentInput" name="comment"></textarea>
-                    <button class='submit' type='submit'>Add Comment</button>
+                    <button class='submit' type='submit'>Add comment</button>
                 </form>
                 <?php
             } else {
@@ -219,7 +223,7 @@
             ?>
 
             <!-- show all comments -->
-            <h2>Comments</h2>
+            <h2>All Comments</h2>
             <div class="comment-container">
                 <?php
                 foreach ($commentInfo as $comment) {

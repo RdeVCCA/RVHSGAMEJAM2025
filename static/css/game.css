@@ -13,7 +13,7 @@ a{
 }
 #commentInput{
     width: 70vw;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter';
     display: block;
     overflow-wrap: break-word;
     background:transparent;
@@ -26,23 +26,19 @@ a{
     font-size: 1rem;
 }
 
-#related{
-    grid-row: 1;
+.ratings {
+    display: grid;
+    column-gap: 1em;
+    max-width: fit-content;
+}
+
+#overall, #related, #aesthetic, #fun {
     grid-column: 2;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter';
+}
+
+#overall{
     margin-top: 0.5rem;
-}
-
-#aesthetic{
-    grid-row: 2;
-    grid-column: 2;
-    font-family: 'Inter', sans-serif;
-}
-
-#fun{
-    grid-row: 3;
-    grid-column: 2;
-    font-family: 'Inter', sans-serif;
 }
 
 #Description{
@@ -145,26 +141,6 @@ h2{
   border-radius: 50%;
 }
 
-.ratings{
-    font-family: Inter;
-    display: grid;
-    grid-template-columns: 30% 70%;
-    grid-template-rows: auto auto auto;
-    gap:0.5em;
-    margin-top: 1em;
-}
-
-.star{
-    width: 2vw;
-}
-
-.big-star{
-    width: 3vw;
-}
-
-.star:hover, .big-star:hover{
-    cursor: pointer;
-}
 
 #startArrow{
     width: 5vw;
