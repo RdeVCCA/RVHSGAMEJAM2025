@@ -52,7 +52,8 @@
                 
                 if (
                     isset($ratingOverall) && isset($ratingRelated) && isset($ratingAesthetic) && isset($ratingFun)
-                    && $ratingOverall != 0 && $ratingRelated != 0 && $ratingAesthetic != 0 && $ratingFun != 0
+                    && $ratingOverall >= 1 && $ratingRelated >= 1 && $ratingAesthetic >= 1 && $ratingFun >= 1
+                    && $ratingOverall <= 5 && $ratingRelated <= 5 && $ratingAesthetic <= 5 && $ratingFun <= 5
                 ) {
                     // check if the user has already rated
                     $ratingExist = isset(
