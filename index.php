@@ -14,7 +14,6 @@ if (isset($_GET['filename'])){
 // site-wide session
 session_start();
 
-// require_once "backend/Defaults/connect.php";
 if ($filename === 'login') {
     // session_start and session_destroy must be before header
     include 'templates/login.tpl.php';

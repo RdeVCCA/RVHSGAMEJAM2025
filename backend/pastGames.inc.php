@@ -1,6 +1,6 @@
 <?php
 include 'backend/gameFileUtils.inc.php';
-include 'backend/Defaults/connect.php';
+include_once 'backend/Defaults/connect.php';
 
 $pastGamesRaw = sqlQueryAllObjects(
     $conn,

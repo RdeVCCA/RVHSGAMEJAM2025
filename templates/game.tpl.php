@@ -8,14 +8,13 @@
             include 'templates/navbar.tpl.php';
             include 'backend/gameFileUtils.inc.php';
             include 'templates/stars.tpl.php';
-            include 'backend/Defaults/connect.php';
+            include_once 'backend/Defaults/connect.php';
 
             // there are 2 parts to this chunk of php:
             // the first chunk gets game info and displays it to the user
             // the second chunk runs on the server and handles POST requests for ratings
 
             $gameId = $_GET['gameId'];
-            $userEmail = $_SESSION['userEmail'];
 
             // get game info
             $gameInfo = sqlQueryObject(
@@ -38,6 +37,11 @@
 
             // handle POST requests from the 2 forms below
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $userEmail = $_SESSION['userEmail'];
+                if (!isset($userEmail)) {
+                    header("Location: index.php?filename=game&gameId=$gameId");
+                    die();
+                }
                 $userId = sqlQueryObject(
                     $conn,
                     'SELECT userId FROM users WHERE email = ?',

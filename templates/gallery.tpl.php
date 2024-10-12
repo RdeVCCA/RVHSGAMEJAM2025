@@ -7,7 +7,7 @@
             include "templates/navbar.tpl.php";
             // include "backend/pastGames.inc.php";
             include 'backend/gameFileUtils.inc.php';
-            include 'backend/Defaults/connect.php';
+            include_once 'backend/Defaults/connect.php';
         ?>
         <h1>Last Gamejam's Games</h1>
         <div id = "appendGames">
