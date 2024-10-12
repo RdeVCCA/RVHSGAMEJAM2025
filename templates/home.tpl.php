@@ -316,9 +316,8 @@
 
     </div>
 
-    <?php echo print_r($pastGames) ?>
-
     <script>
         const pastGames = <?php echo json_encode($pastGames) ?>;
     </script>
+    <?php echo json_last_error() ?>
     <script src = "static/js/home.js"></script>
