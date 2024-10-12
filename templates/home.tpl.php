@@ -319,5 +319,5 @@
     <script>
         const pastGames = <?php echo json_encode($pastGames) ?>;
     </script>
-    <?php echo json_last_error() ?>
+    <?php echo json_last_error_msg() ?>
     <script src = "static/js/home.js"></script>
