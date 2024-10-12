@@ -36,12 +36,8 @@
             );
 
             // handle POST requests from the 2 forms below
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['userEmail'])) {
                 $userEmail = $_SESSION['userEmail'];
-                if (!isset($userEmail)) {
-                    header("Location: index.php?filename=game&gameId=$gameId");
-                    die();
-                }
                 $userId = sqlQueryObject(
                     $conn,
                     'SELECT userId FROM users WHERE email = ?',
