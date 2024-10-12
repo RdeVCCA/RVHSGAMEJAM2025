@@ -1,11 +1,11 @@
-<link rel="stylesheet" href="static/css/hero.css?<?php echo time(); ?>" />
-<link rel="stylesheet" href="static/css/about.css?<?php echo time(); ?>" />
+    <link rel="stylesheet" href="static/css/hero.css?<?php echo time(); ?>" />
+    <link rel="stylesheet" href="static/css/about.css?<?php echo time(); ?>" />
 </head>
 
 <body style="height: 100%;">
     <!-- this file is only for the content that comes after the past games section -->
     <?php
-        include 'backend/pastGames.inc.php';
+        include_once 'backend/pastGames.inc.php';
         include "templates/navbar.tpl.php";
         include "templates/hero.tpl.php";
         include "templates/about.tpl.php";
@@ -316,7 +316,9 @@
 
     </div>
 
+    <?php echo $pastGames ?>
+
     <script>
-        const pastGames = <?php echo json_encode($pastGames); ?>;
+        const pastGames = <?php echo json_encode($pastGames) ?>;
     </script>
     <script src = "static/js/home.js"></script>
