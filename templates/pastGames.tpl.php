@@ -1,14 +1,21 @@
 <link rel="stylesheet" href="static/css/pastGames.css" />
 <link rel="stylesheet" href="static/css/shared.css" />
 <div class="past-games">
-    <h2>Past Gamejams</h2>
+    <h2>All Games</h2>
     <div class="select-year-container">
-        <!-- TODO: maybe can auto add years by reading off of a .json in the future? -->
-        <button class="select-year" data-selected="true">2021</button>
-        <button class="select-year">2022</button>
-        <button class="select-year">2023</button>
-      </div>
-      <div class="select-game-container">
+        <?php
+            $first = true;
+            foreach ($pastGames as $year => $value) {
+                if ($first) {
+                    echo "<button class='select-year' data-selected='true'>$year</button>";
+                    $first = false;
+                } else {
+                    echo "<button class='select-year'>$year</button>";
+                }
+            }
+        ?>
+    </div>
+    <div class="select-game-container">
         <input type="image" class="select-game" data-selected="true"/>
     </div>
     <div class="game-details-container">

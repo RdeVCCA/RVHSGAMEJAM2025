@@ -1,14 +1,22 @@
-<?php require "backend/About/pastGames.inc.php"?>
-<link rel="stylesheet" href="static/css/hero.css?<?php echo time(); ?>" />
-<link rel="stylesheet" href="static/css/about.css?<?php echo time(); ?>" />
+    <link rel="stylesheet" href="static/css/hero.css?<?php echo time(); ?>" />
+    <link rel="stylesheet" href="static/css/about.css?<?php echo time(); ?>" />
 </head>
 
 <body style="height: 100%;">
     <!-- this file is only for the content that comes after the past games section -->
-    <?php include "templates/hero.tpl.php" ?>
-    <?php include "templates/about.tpl.php" ?>
-    <?php include "templates/pastGames.tpl.php" ?>
+    <?php
+        include_once 'backend/pastGames.inc.php';
+        include "templates/navbar.tpl.php";
+        include "templates/hero.tpl.php";
+        include "templates/about.tpl.php";
+        include "templates/pastGames.tpl.php";
 
+        if (isset($_SESSION['loginNotAllowed'])) {
+            echo '<script>alert("Sorry! Only students and staff from RVHS can signup!");</script>';
+            $_SESSION['loginNotAllowed'] = null;
+        }
+    ?>
+    
     <div class="page">
         <!-- eligibility and team formation -->
         <h2 class="header-section">Details</h2>
@@ -26,7 +34,7 @@
                 </div>
                 <div class="container-image">
                     <img id="image-team" class="center-h" src="static/img/team.webp">
-                    <a href="https://forms.gle/YiPxeeYy15nnUFm7A" class="center-h flex-image-button fade-bottom paused">Sign Up</a>
+                    <a href="https://forms.gle/Va3WKpSuwXPjFjSS8" class="center-h flex-image-button fade-bottom paused">Sign Up</a>
                 </div>
             </div>
         </div>
@@ -45,7 +53,7 @@
                     </p>
                 </div>
                 <div class="container-image">
-                    <img id="image-calender" class="center-h" src="static/img/calender.webp">
+                    <img id="image-calendar" class="center-h" src="static/img/calendar.webp">
                 </div>
             </div>
         </div>
@@ -229,7 +237,9 @@
         <div class="spacer"></div>
 
         <!-- judging process -->
+        <!--
         <h2 class="header-section text-align-left">Judging</h2>
+        -->
         <div class="container-sub">
             <div class="container-content center-h">
                 <div class="container-text">
@@ -301,12 +311,12 @@
         <div class="spacer"></div>
 
         <!-- sign up button -->
-        <a href="https://forms.gle/YiPxeeYy15nnUFm7A" class="center-h center-v signup-button" style = "margin-bottom:2em;"><span>Sign Up</span></a>
+        <a href="https://forms.gle/Va3WKpSuwXPjFjSS8" class="center-h center-v signup-button" style = "margin-bottom:2em;"><span>Sign Up</span></a>
         <div class="spacer"></div>
 
     </div>
 
     <script>
-        const pastGames = <?php echo json_encode($pastGame); ?>;
+        const pastGames = <?php echo json_encode($pastGames) ?>;
     </script>
     <script src = "static/js/home.js"></script>
