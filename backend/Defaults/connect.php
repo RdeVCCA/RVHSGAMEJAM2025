@@ -1,6 +1,7 @@
 <?php
 require_once '../../../private/rvhsgamejam_secrets.inc.php';
 $conn = mysqli_connect(DB_SERVERNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$conn->set_charset('utf8mb4');
 
 function sqlQueryObject($conn, $stmt, $arg = null) {
     $sqlResult = $conn->execute_query($stmt, $arg);
