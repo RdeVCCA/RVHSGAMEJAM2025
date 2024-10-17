@@ -17,6 +17,8 @@ session_start();
 if ($filename === 'login') {
     // session_start and session_destroy must be before header
     include 'templates/login.tpl.php';
+} elseif ($filename === 'test') {
+    include 'templates/componenttest.tpl.php';
 } else {
     include 'templates/defaults/header.tpl.php';
 

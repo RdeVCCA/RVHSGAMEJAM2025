@@ -10,8 +10,6 @@
         <meta name="description" content="">
         <link rel="icon" href="static/img/logo.ico">
 
-        <link rel="stylesheet" type="text/css" href="static/css/home.css?<?php echo time(); ?>">
-        <link rel="stylesheet" type="text/css" href="static/css/image.css?<?php echo time(); ?>">
         <link rel="stylesheet" type="text/css" href="static/css/shared.css?<?php echo time(); ?>">
         <link rel="stylesheet" type="text/css" href="static/css/mobile.css?<?php echo time(); ?>">
         <link rel="stylesheet" type="text/css" href="static/css/navbar.css?<?php echo time(); ?>">

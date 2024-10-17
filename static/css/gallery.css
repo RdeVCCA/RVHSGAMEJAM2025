@@ -1,80 +1,87 @@
-#appendGames{
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 1.5em
+#games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5em
 }
 
-#appendGame{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    width: 42vw;
+body {
+  width: 90%;
+  margin: auto;
 }
 
-body{
-    width: 90%;
-    margin: auto;
+.game-container {
+  width: 100vw;
+  display: grid;
+  gap: 10px 10px;
+  grid-template-columns: 1fr 1fr;
 }
 
-.creator{
-    grid-row: 3;
+/*
+  .game-container
+
+    1      1fr       2       1fr      3
+  1 +----------------+----------------+
+    |                                 |
+    |    .game-thumbnail-container    |
+    |                                 |
+  2 +---------------------------------+
+    |                |                |
+    |     .name      |                |
+    |                |                |
+  3 +----------------+     .genre     +
+    |                |                |
+    |    .creator    |                |
+    |                |                |
+  4 +----------------+----------------+
+*/
+
+.game-thumbnail-container {
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
-.game-logo-container{
-    grid-column-start: 1;
-    grid-column-end: 4;
+.game-thumbnail {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  /* for the :hover animation */
+  transition: scale 0.5s, box-shadow 0.5s;
 }
 
-.gameLogo{
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    transition: scale 0.5s, box-shadow 0.5s;
+.game-thumbnail:hover {
+  box-shadow: 0rem 0rem 0.8rem rgba(255, 255, 255, 0.712);
+  cursor: pointer;
+  scale: 1.05;
 }
 
-.gameLogo:hover{
-    /* filter: brightness(0.8); */
-    box-shadow: 0rem 0rem 0.8rem rgba(255, 255, 255, 0.712);
-    cursor: pointer;
-    scale: 1.05;
+.creator {
+  grid-row: 3;
 }
 
-.genre{
-    grid-row-start: 2;
-    grid-row-end: 4;
-    margin: auto 15%;
-    text-align: right;
-    color: grey;
-    font-weight: bold;
-    font-size: 1em;
+.genre {
+  /* center text vertically */
+  margin-top: auto;
+  margin-bottom: auto;
+  /* refer to diagram */
+  grid-row-start: 2;
+  grid-row-end: 4;
+
+  text-align: right;
+  color: grey;
+  font-weight: bold;
+  font-size: 1em;
 }
 
-.name{
-    grid-row: 2;
-    margin: 3% 0;
-    font-weight: bold;
-    flex-flow: row wrap;
+.name {
+  grid-row: 2;
+  font-weight: bold;
+  flex-flow: row wrap;
 }
 
-@media only screen and (max-width: 600px) {
-    #appendGame{
-        grid-template-columns: 60% 40%;
-        width: 40vw;
-    }
-    
-    body{
-        font-size: 0.6rem;
-    }
-
-    h1{
-        font-size: 2rem;
-    }
-
-    .name{
-        margin: 0.5rem 0rem 0 0.3rem;
-    }
-
-    .creator{
-        margin: 0 0.3rem;
-    }
+@media only screen and (min-width: 600px) {
+  .game-container {
+    width: 40vw;
+  }
 }

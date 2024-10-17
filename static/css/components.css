@@ -1,0 +1,282 @@
+/* colours */
+:root {
+  --white: #f0f0f0;
+  --black: #101010;
+  --gray: #808080;
+  --grey: #808080;
+  --green: #97df76;
+  --blue: #afacd7;
+  --hover-effect-color: #b3b0d7;
+}
+
+.white {
+  color: #f0f0f0;
+}
+
+.black {
+  color: #101010;
+}
+
+.gray {
+  color: #808080;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* specify that an <img> is an icon */
+.icon {
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  height: 100px;
+}
+
+/* removes margin and padding */
+.no-margin-padding {
+  margin: 0;
+  padding: 0;
+}
+
+/* turns <a> into a clickable button */
+.anchor-button {
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  border-width: 0.3rem;
+  border-style: solid;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.anchor-button:hover {
+  filter: brightness(1.2);
+  box-shadow: 0px 0px 5px 2px var(--hover-effect-color);
+}
+
+/* text sizes */
+.text-big {
+  font-size: 3em;
+}
+
+.text-bigger {
+  font-size: 4em;
+}
+
+.text-biggest {
+  font-size: 5em;
+}
+
+/* flexbox shortcuts */
+
+.container-h {
+  display: flex;
+  flex-direction: row;
+}
+
+.container-v {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-h-distribute-h,
+.container-h-distribute-h-same-size {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.container-h-distribute-h-same-size>* {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.container-v-distribute-v {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.container-h-center-h {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container-v-center-v {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container-h-center-v {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container-v-center-h {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-h-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-v-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* emphasised text, use only in <span> */
+.text-emphasis {
+  font-weight: bold;
+}
+
+/*
+  animations (like powerpoint)
+*/
+.anim-fade-in-from-top {
+  animation: keyframe-fade-in-from-top 0.5s ease-in-out backwards;
+}
+
+.anim-fade-in-from-bottom {
+  animation: keyframe-fade-in-from-bottom 0.5s ease-in-out backwards;
+}
+
+.anim-fade-in-from-left {
+  animation: keyframe-fade-in-from-left 0.5s ease-in-out backwards;
+}
+
+.anim-fade-in-from-right {
+  animation: keyframe-fade-in-from-right 0.5s ease-in-out backwards;
+}
+
+.anim-fade-in-tilt-cw {
+  transform: rotate(10deg);
+  animation: keyframe-fade-in-tilt-cw 0.5s ease-in-out backwards;
+}
+
+.anim-fade-in-tilt-ccw {
+  transform: rotate(-10deg);
+  animation: keyframe-fade-in-tilt-ccw 0.5s ease-in-out backwards;
+}
+
+@keyframes keyframe-fade-in-tilt-ccw {
+  0% {
+    opacity: 0;
+    transform: rotate(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes keyframe-fade-in-tilt-cw {
+  0% {
+    opacity: 0;
+    transform: rotate(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes keyframe-fade-in-from-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-1em);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes keyframe-fade-in-from-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(1em);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes keyframe-fade-in-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-1em);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes keyframe-fade-in-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(1em);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes keyframe-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+}
+
+/* animation orders */
+.anim-first {
+  animation-delay: 0s;
+}
+
+.anim-second {
+  animation-delay: 0.5s;
+}
+
+.anim-third {
+  animation-delay: 1s;
+}
+
+.anim-fourth {
+  animation-delay: 1.5s;
+}
