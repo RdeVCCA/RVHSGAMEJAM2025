@@ -103,7 +103,7 @@
         <!-- the section with the instagram logo -->
         <div class="container-sub">
             <p class="header-content text-align-center text-solo center-h fade-top paused">
-                The game's theme will be announced at the start of the competition on <b>November 16th</b>,
+                The game's theme will be announced at the start of the competition on <b>November 1st</b>,
                 via <b class="white">this website</b> and <b class="white">social media</b>.
             </p>
             <div class="center-h fade-in paused" id="image-ig-1">
