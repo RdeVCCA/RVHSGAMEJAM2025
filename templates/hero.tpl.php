@@ -1,4 +1,4 @@
-<section id="hero" class="container-v-center">
+<section id="hero" class="cont-v-c">
     <link rel="stylesheet" href="static/css/components.css">
     <link rel="stylesheet" href="static/css/hero.css">
     <video class="fullscreen" id="hero-video" autoplay loop muted>

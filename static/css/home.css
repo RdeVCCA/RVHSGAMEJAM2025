@@ -1,27 +1,16 @@
-img {
-  max-height: 400px;
+.home-img {
+  /* max-height: 300px; */
+  width: 300px;
 }
 
-
-#theme-display {
-  height: 400px;
-}
-
-#theme1 {
-  height: 300px;
-  top: 10%;
-  left: 10%;
-}
-
-#theme2 {
-  height: 300px;
-  top: 10%;
-  left: 30%;
+#submisson-guideline-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 @media only screen and (min-width: 600px) {
   #home {
-    width: 80%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
   }

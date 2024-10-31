@@ -55,8 +55,8 @@
   border-radius: 0.5rem;
   border-width: 0.3rem;
   border-style: solid;
-  margin: 1em;
-  padding: 1em;
+  margin: 1rem;
+  padding: 1rem;
   text-align: center;
   transition: 0.3s;
 }
@@ -80,71 +80,101 @@
 }
 
 /* flexbox shortcuts */
-
-.container-h {
+/* flex direction row */
+.cont-h,
+/* flex direction column */
+.cont-v,
+/* flex direction row, space between */
+.cont-h-dh,
+/* flex direction column, space between */
+.cont-v-dv,
+/* flex direction row, centered */
+.cont-h-ch,
+/* flex direction column, centered */
+.cont-v-cv,
+/* flex direction row, align to horizontal */
+.cont-h-cv,
+/* flex direction column, align to vertical */
+.cont-v-ch,
+/* flex direction row, centered */
+.cont-h-c,
+/* flex direction column, centered */
+.cont-v-c {
   display: flex;
+}
+
+.cont-h {
   flex-direction: row;
 }
 
-.container-v {
-  display: flex;
+.cont-v {
   flex-direction: column;
 }
 
-.container-h-distribute-h,
-.container-h-distribute-h-same-size {
-  display: flex;
+.cont-h-dh {
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
-.container-h-distribute-h-same-size>* {
-  flex-basis: 0;
-  flex-grow: 1;
-}
-
-.container-v-distribute-v {
-  display: flex;
+.cont-v-dv {
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
-.container-h-center-h {
-  display: flex;
+.cont-h-ch {
   flex-direction: row;
   justify-content: center;
 }
 
-.container-v-center-v {
-  display: flex;
+.cont-v-cv {
   flex-direction: column;
   justify-content: center;
 }
 
-.container-h-center-v {
-  display: flex;
+.cont-h-cv {
   flex-direction: row;
   align-items: center;
 }
 
-.container-v-center-h {
-  display: flex;
+.cont-v-ch {
   flex-direction: column;
   align-items: center;
 }
 
-.container-h-center {
-  display: flex;
+.cont-h-c {
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.container-v-center {
-  display: flex;
+.cont-v-c {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* gap for flex direction row */
+.cont-h-g {
+  column-gap: 5rem;
+}
+
+/* gap for flex direction column */
+.cont-v-g {
+  row-gap: 5rem;
+}
+
+/* reverse flex direction row */
+.cont-h-r {
+  flex-direction: row-reverse;
+}
+
+.cont-h-r>* {
+  text-align: right;
+}
+
+/* reverse flex direction column */
+.cont-v-r {
+  flex-direction: column-reverse;
 }
 
 /* emphasised text, use only in <span> */

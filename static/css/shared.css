@@ -14,6 +14,9 @@ body {
   --text-color2: #ACACAC;
   --secondary-color1: #FFE6E6;
   --secondary-color2: #B3B0D7;
+  --background-color1: #333333;
+  --background-color2: #222222;
+  --background-color3: #111111;
   background: var(--primary-color);
   color: var(--text-color1);
   font-size: calc(10px + 1vw);
@@ -22,9 +25,38 @@ body {
   overflow-x: hidden;
 }
 
-h2 {
-  font-size: 2.5rem;
-  margin: 0;
+a {
+  color: var(--text-color1);
+}
+
+hr {
+  width: 30%;
+}
+
+table {
+  background-color: var(--background-color1);
+  border: 1px solid var(--text-color1);
+}
+
+th {
+  background-color: var(--background-color3);
+}
+
+table td,
+table th {
+  padding: 1rem;
+}
+
+table th {
+  color: var(--secondary-color2);
+}
+
+table tr {
+  background-color: var(--background-color2);
+}
+
+table tr:nth-child(2n+1) {
+  background-color: var(--background-color1);
 }
 
 ::-webkit-scrollbar {
