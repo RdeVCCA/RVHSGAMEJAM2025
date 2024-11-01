@@ -1,19 +1,14 @@
-    <!--
-    <link rel="stylesheet" href="static/css/hero.css?<?php echo time(); ?>" />
-    <link rel="stylesheet" href="static/css/about.css?<?php echo time(); ?>" />
-    -->
-    <link rel="stylesheet" href="static/css/components.css" />
     <link rel="stylesheet" href="static/css/home.css" />
 </head>
 
-<body style="height: 100%;">
+<body>
     <!-- this file is only for the content that comes after the past games section -->
     <?php
-        include_once 'backend/pastGames.inc.php';
-        include "templates/navbar.tpl.php";
-        include "templates/hero.tpl.php";
-        // include "templates/about.tpl.php";
-        include "templates/pastGames.tpl.php";
+        // include_once 'backend/pastGames.inc.php';
+        // include "templates/navbar.tpl.php";
+        include_once 'templates/hero.tpl.php';
+        include_once 'templates/about.tpl.php';
+        include_once 'templates/pastGames.tpl.php';
 
         if (isset($_SESSION['loginNotAllowed'])) {
             echo '<script>alert("Sorry! Only students and staff from RVHS can signup!");</script>';
@@ -21,7 +16,7 @@
         }
     ?>
     
-    <div id="home" class="cont-v cont-v-g">
+    <div id="home" class="cont-v-cv cont-v-g">
         <!-- eligibility and team formation -->
         <h1>Details</h1>
         <div class="cont-h-dh cont-h-g">
@@ -122,7 +117,7 @@
 
         <!-- recommended software -->
         <h2>Recommended Software</h2>
-        <div class="cont-h-dh cont-h-g">
+        <div class="cont-h-ch cont-h-g cont-w">
             <div class="cont-v-cv">
                 <a href="https://www.gimp.org/"><img src="static/img/gimps.webp" class="home-img"></a>
             </div>
@@ -204,9 +199,73 @@
             </div>
         </div>
         <div class="cont-v-cv">
-            <!-- judging rubrics (its not spelt rubrix) -->
             <h2>Judging Rubrics</h2>
-            <?php require "templates/judgingRubrix.tpl.php"?>
+            <div id="judging-rubrics">
+                <table>
+                    <tr>
+                        <th>Main Criteria</th>
+                        <th>6-5</th>
+                        <th>4-3</th>
+                        <th>2-1</th>
+                    </tr>
+                    <tr>
+                        <td>Relatedness to Theme</td>
+                        <td>
+                            Game integrates elements of the theme very well
+                            and much effort is put into implementing the topic into the game.
+                        </td>
+                        <td>Elements of the theme are found in the game, but feel forced.</td>
+                        <td>Elements of the theme not found in the game, or only present as visuals or sprites.</td>
+                    </tr>
+                    <tr>
+                        <td>Uniqueness</td>
+                        <td>Game has many unique gameplay elements.</td>
+                        <td>Game is somewhat unique, but has many generic gameplay mechanics.</td>
+                        <td>Game looks generic with no unique elements.</td>
+                    </tr>
+                    <tr>
+                        <th>Secondary Criteria</th>
+                        <th>3</th>
+                        <th>2</th>
+                        <th>1</th>
+                    </tr>
+                    <tr>
+                        <td>Aesthetics</td>
+                        <td>Game sprites are original and complement the theme well.</td>
+                        <td>
+                            Attempt made at making game aesthetically pleasing,
+                            but is either directly copied from online sources,
+                            or does not complement the theme well.
+                        </td>
+                        <td>Little to no sprites added to the game.</td>
+                    </tr>
+                    <tr>
+                        <td>Gameplay smoothness</td>
+                        <td>Game is smooth and easy to play.</td>
+                        <td>
+                            Game is playable, but lacks user-friendly elements.
+                            Games with buggy physics may also end up in this category.
+                        </td>
+                        <td>Game is buggy, hardly playable or very unenjoyable due to messy or delayed controls.</td>
+                    </tr>
+                    <tr>
+                        <td>Ease of Learning</td>
+                        <td>Game is easily understood with clear instructions.</td>
+                        <td>Game is can be easily understood for most people, but instructions are sometimes unclear.</td>
+                        <td>Game is hard to understand and learn, often leaving users confused on what to do and how the game works.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Relatedness to Subtheme</td>
+                        <td>
+                            Subtheme is intricately woven into the gameplay and narrative,
+                            enhancing the overall game experience.
+                        </td>
+                        <td>Subtheme is present but does not significantly influence the gameplay or story.</td>
+                        <td>Subtheme is barely noticeable or irrelevant to the game's core elements.</td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
         <hr>
@@ -226,7 +285,7 @@
             <!-- contact -->
             <div>
                 <h2>Contact</h2>
-                <div class="cont-h-dh">
+                <div class="cont-h-ch cont-h-g">
                     <a class="cont-v-ch" href="mailto:rdevcca@gmail.com">
                         <img class="icon" src="static/img/gmail.webp">
                         <p>rdevcca@gmail.com</p> <!-- TODO: replace the <p> tags with something more suitable -->
@@ -252,4 +311,4 @@
     <script>
         const pastGames = <?php echo json_encode($pastGames) ?>;
     </script>
-    <script src = "static/js/home.js"></script>
+    <script src="static/js/home.js"></script>
