@@ -65,7 +65,7 @@ h2 {
 
 .thumbnail {
   border: none;
-  height: 50vh;
+  max-height: 50vh;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   max-width: 80vw;
@@ -163,14 +163,6 @@ textarea {
     grid-template-columns: 40% 60%;
   }
 
-  .Stars {
-    width: 8vw;
-  }
-
-  .Star {
-    width: 5vw;
-  }
-
   .submit {
     border-radius: 0.5rem;
   }
@@ -179,7 +171,7 @@ textarea {
     margin-bottom: 0;
   }
 
-  #commentInput {
+  #comment-input {
     width: 70vw;
   }
 
