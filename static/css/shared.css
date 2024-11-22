@@ -1,3 +1,11 @@
+/*
+  responsible for styling all elements generically,
+  to give the site its unique look.
+
+  `selected` is a class that you have to specify in HTML or JS
+  in order to activate the related style.
+*/
+
 @font-face {
   font-family: 'Inter';
   src: url('../fonts/Inter/Inter-VariableFont_slnt\,wght.ttf');
@@ -9,11 +17,15 @@
 }
 
 body {
+  /* pure black */
   --primary-color: #000000;
+  /* text colours (light) */
   --text-color1: #ffffff;
   --text-color2: #ACACAC;
+  /* light colours */
   --secondary-color1: #FFE6E6;
   --secondary-color2: #B3B0D7;
+  /* dark colours */
   --background-color1: #333333;
   --background-color2: #222222;
   --background-color3: #111111;
@@ -29,10 +41,12 @@ a {
   color: var(--text-color1);
 }
 
+/* allow <hr> to work in flexboxes */
 hr {
   width: 30%;
 }
 
+/* table stuff */
 table {
   background-color: var(--background-color1);
   border: 1px solid var(--text-color1);

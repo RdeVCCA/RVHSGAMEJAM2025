@@ -5,7 +5,7 @@
     <!-- this file is only for the content that comes after the past games section -->
     <?php
         // include_once 'backend/pastGames.inc.php';
-        // include "templates/navbar.tpl.php";
+        include_once "templates/navbar.tpl.php";
         include_once 'templates/hero.tpl.php';
         include_once 'templates/about.tpl.php';
         include_once 'templates/pastGames.tpl.php';
@@ -30,7 +30,7 @@
             </div>
             <div class="cont-v-c">
                 <img id="image-team" src="static/img/team.webp" class="home-img">
-                <a href="https://forms.gle/Va3WKpSuwXPjFjSS8" class="anchor-button">Sign Up</a>
+                <a href="https://forms.gle/Va3WKpSuwXPjFjSS8" target="_blank" class="anchor-button hover">Sign Up</a>
             </div>
         </div>
 
@@ -63,7 +63,7 @@
                     via <b>this website</b> and <b>social media</b>.
                 </p>
             </div>
-            <a href="https://www.instagram.com/rv.devs/">
+            <a href="https://www.instagram.com/rv.devs/" target="_blank" class="hover">
                 <img src="static/img/ig.webp" class="home-img">
             </a>
         </div>
@@ -119,13 +119,13 @@
         <h2>Recommended Software</h2>
         <div class="cont-h-ch cont-h-g cont-w">
             <div class="cont-v-cv">
-                <a href="https://www.gimp.org/"><img src="static/img/gimps.webp" class="home-img"></a>
+                <a href="https://www.gimp.org/" target="_blank"><img src="static/img/gimps.webp" class="home-img hover"></a>
             </div>
             <div class="cont-v-cv">
-                <a href="https://www.piskelapp.com/"><img src="static/img/piskel.webp" class="home-img"></a>
+                <a href="https://www.piskelapp.com/" target="_blank"><img src="static/img/piskel.webp" class="home-img hover"></a>
             </div>
             <div class="cont-v-cv">
-                <a href="https://www.reaper.fm/"><img src="static/img/reaper.webp" class="home-img"></a>
+                <a href="https://www.reaper.fm/" target="_blank"><img src="static/img/reaper.webp" class="home-img hover"></a>
             </div>
         </div>
 
@@ -286,11 +286,11 @@
             <div>
                 <h2>Contact</h2>
                 <div class="cont-h-ch cont-h-g">
-                    <a class="cont-v-ch" href="mailto:rdevcca@gmail.com">
+                    <a class="cont-v-ch hover" href="mailto:rdevcca@gmail.com" target="_blank">
                         <img class="icon" src="static/img/gmail.webp">
                         <p>rdevcca@gmail.com</p> <!-- TODO: replace the <p> tags with something more suitable -->
                     </a>
-                    <a class="cont-v-ch" href="https://www.instagram.com/rv.devs/">
+                    <a class="cont-v-ch hover" href="https://www.instagram.com/rv.devs/" target="_blank">
                         <img class="icon" src="static/img/ig_contact.webp">
                         <p>rv.devs</p>
                     </a>
@@ -305,7 +305,7 @@
         <!-- sign up button -->
     </div>
     <footer class="cont-h-ch">
-        <a href="https://forms.gle/Va3WKpSuwXPjFjSS8" class="anchor-button"><span>Sign Up</span></a>
+        <a href="https://forms.gle/Va3WKpSuwXPjFjSS8" class="anchor-button hover" target="_blank"><span>Sign Up</span></a>
     </footer>
 
     <script>

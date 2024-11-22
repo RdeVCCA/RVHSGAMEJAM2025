@@ -1,13 +1,12 @@
-        <link rel = "stylesheet" href = "static/css/game.css">
-        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&Josefin+Sans&display=swap" rel="stylesheet">
-        <script src = "static/js/game.js"></script>
+        <link rel="stylesheet" href="static/css/game.css">
+        <script src="static/js/game.js"></script>
     </head>
 
     <body>
         <?php
-            include 'templates/navbar.tpl.php';
-            include 'backend/gameFileUtils.inc.php';
-            include 'templates/stars.tpl.php';
+            include_once 'templates/navbar.tpl.php';
+            include_once 'backend/gameFileUtils.inc.php';
+            include_once 'templates/stars.tpl.php';
             include_once 'backend/Defaults/connect.php';
 
             // there are 2 parts to this chunk of php:
@@ -98,44 +97,44 @@
                 die();
             }
         ?>
-        <div class="center">
-            <div id='Header'>
-                <h1><?php echo htmlspecialchars($gameInfo->name) ?></h1>
-                <div><?php echo htmlspecialchars($gameInfo->genre) ?></div>
-                <div>Created by <?php echo htmlspecialchars($gameInfo->creators) ?></div>
-            </div>
-            
-            <div id='game-carousel'>
+        <div id="game-header">
+            <h1><?php echo htmlspecialchars($gameInfo->name) ?></h1>
+            <div><?php echo htmlspecialchars($gameInfo->genre) ?></div>
+            <div>Created by <?php echo htmlspecialchars($gameInfo->creators) ?></div>
+        </div>
+        
+        <div id="game-content">
+            <div id="game-carousel">
                 <?php
                 // show arrows only if both trailer and thumbnail exist
                 if ($trailerExists && $thumbnailExists) {
                     ?>
-                    <a href='javascript:void(0)' onclick='update()'><div id='startArrow'>&#x2190;</div></a>
+                    <a href="javascript:void(0)" onclick="update()"><div id="left-arrow">&#x2190;</div></a>
                     <?php
                 }
                 
                 if ($trailerExists) {
                     ?>
-                    <iframe id='trailer' class='thumbnail' src='<?php echo $gameInfo->trailer ?>'></iframe>
+                    <iframe id="trailer" class="thumbnail" src="<?php echo $gameInfo->trailer ?>"></iframe>
                     <?php
                 }
                 if ($thumbnailExists) {
                     ?>
-                    <img id='thumbnail' class='thumbnail' src='<?php echo $thumbnail ?>'>
+                    <img id="thumbnail" class="thumbnail" src="<?php echo $thumbnail ?>">
                     <?php
                 }
                 
                 // show arrows only if both trailer and thumbnail exist
                 if ($trailerExists && $thumbnailExists) {
                     ?>
-                    <a href='javascript:void(0)' onclick='update()'><div id='endArrow'>&#x2192;</div></a>
+                    <a href="javascript:void(0)" onclick="update()"><div id="right-arrow">&#x2192;</div></a>
 
                     <!-- js to make the arrows functional -->
                     <script>
                     let trailer = document.getElementById("trailer");
                     let thumbnail = document.getElementById("thumbnail");
-                    let leftArrow = document.getElementById("startArrow");
-                    let rightArrow = document.getElementById("endArrow");
+                    let leftArrow = document.getElementById("left-arrow");
+                    let rightArrow = document.getElementById("right-arrow");
                 
                     let trailerSelected = true;
 
@@ -160,15 +159,11 @@
                 }
                 ?>
             </div>
-
             <a href="<?php echo $gameInfo->link ?>">
-                <div id="gameButton">Play Game</div>
+                <div class="anchor-button">Play Game</div>
             </a>
-        </div>
-        
-        <div id='Description'><?php echo $gameInfo->description ?></div>
-        
-        <div class = "margin">
+
+            <div id='game-description'><?php echo $gameInfo->description ?></div>
             <?php
             if (isset($_SESSION['userEmail'])) {
                 ?>
@@ -204,16 +199,16 @@
                             <?php makeNewRating('fun', $rating->fun) ?>
                         </div>
                     </div>
-                    <button class='submit' type='submit'>Submit ratings</button>
+                    <button class="submit" type='submit'>Submit ratings</button>
                 </form>
 
                 <!-- comment form -->
                 <form action='<?php echo "index.php?filename=game&gameId=$gameId" ?>' method='POST'>
                     <h2>Comment</h2>
-                    <label for="commentInput">Create a comment:</label>
+                    <label for="comment-input">Create a comment:</label>
                     <!-- name=comment -->
-                    <textarea placeholder="Enter a comment" id="commentInput" name="comment"></textarea>
-                    <button class='submit' type='submit'>Add comment</button>
+                    <textarea placeholder="Enter a comment" id="comment-input" name="comment"></textarea>
+                    <button class="submit" type='submit'>Add comment</button>
                 </form>
                 <?php
             } else {
@@ -247,7 +242,9 @@
     </body>
 </html>
 
-<!-- Database instructions
+<?php
+/*
+Database instructions
 comments(Id, UserEmail, comment, GameName)
 *Identify comment through unique id
 *Identify the person who gave the comment to retrieve pfp and username
@@ -277,3 +274,5 @@ users(UserEmail, username, pfp)
 *Identify a user based on their email
 *Username is used for referring to a user on the page and to append to page
 *Identify pfp to append to comment section-->
+*/
+?>

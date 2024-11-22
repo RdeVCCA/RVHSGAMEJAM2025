@@ -1,3 +1,9 @@
+#gallery-content {
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #games {
   display: flex;
   flex-wrap: wrap;
@@ -5,13 +11,7 @@
   gap: 1.5em
 }
 
-body {
-  width: 90%;
-  margin: auto;
-}
-
 .game-container {
-  width: 100vw;
   display: grid;
   gap: 10px 10px;
   grid-template-columns: 1fr 1fr;

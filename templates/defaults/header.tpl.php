@@ -11,8 +11,7 @@
         <link rel="icon" href="static/img/logo.ico">
 
         <link rel="stylesheet" type="text/css" href="static/css/shared.css?<?php echo time(); ?>">
-        <link rel="stylesheet" type="text/css" href="static/css/mobile.css?<?php echo time(); ?>">
-        <link rel="stylesheet" type="text/css" href="static/css/navbar.css?<?php echo time(); ?>">
+        <!-- <link rel="stylesheet" type="text/css" href="static/css/mobile.css?<?php echo time(); ?>"> -->
         <link rel="stylesheet" type="text/css" href="static/css/components.css?<?php echo time(); ?>" />
         <link rel="stylesheet" type="text/css" href="static/css/flexbox.css?<?php echo time(); ?>" />
         <!-- <link rel="stylesheet" href="static/css/share.css?<?php echo time(); ?>"> -->

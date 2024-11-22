@@ -9,6 +9,16 @@
   --hover-effect-color: #b3b0d7;
 }
 
+.hover {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.hover:hover {
+  transform: scale(1.1) translateY(-0.2em);
+  /* box-shadow: 0 0.1em 0.5em rgba(255, 255, 255, 0.5); */
+  cursor: pointer;
+}
+
 .white {
   color: #f0f0f0;
 }
@@ -38,7 +48,7 @@
 .icon {
   aspect-ratio: 1/1;
   object-fit: contain;
-  height: 100px;
+  height: 3em;
 }
 
 /* removes margin and padding */
@@ -216,3 +226,11 @@
 .anim-fourth {
   animation-delay: 1.5s;
 }
+
+/*
+@media only screen and (max-width: 800px) {
+  .icon {
+    height: 50px;
+  }
+}
+*/
