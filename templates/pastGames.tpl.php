@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="static/css/pastGames.css" />
 <link rel="stylesheet" href="static/css/shared.css" />
 
-<section id="past-games">
+<section class="past-games">
     <h2>All Games</h2>
     <div class="cont-v-ch cont-v-g">
         <?php
         include_once 'backend/pastGames.inc.php';
         $firstYear = null;
-        echo '<div class="cont-h cont-h-g cont-nr scroll-x">';
+        echo '<div class="cont-h-ch cont-h-g cont-nr scroll-x year-select">';
 
         // make the year buttons
         foreach ($pastGames as $year => $value) {
