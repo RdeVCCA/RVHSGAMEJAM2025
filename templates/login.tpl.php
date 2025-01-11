@@ -34,7 +34,10 @@
         $userName = $googleInfo->name;
         $userPicture = $googleInfo->picture;
 
-        $lastExploded = end(explode(' ', rtrim($userName, ' ')));
+        // DO NOT attempt to merge the next 2 lines into one, because `end()` NEEDS parameters passed by reference!
+        // https://stackoverflow.com/questions/4636166/only-variables-should-be-passed-by-reference
+        $exploded = explode(' ', rtrim($userName, ' '));
+        $lastExploded = end($exploded);
         $fromRvhs = strtoupper($lastExploded) === '(RVHS)';
 
         if (($googleInfo['hd'] == 'students.edu.sg' && $fromRvhs) || $googleInfo['hd'] == 'moe.edu.sg') {

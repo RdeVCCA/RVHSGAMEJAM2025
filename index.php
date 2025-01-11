@@ -14,25 +14,28 @@ if (isset($_GET['filename'])){
 // site-wide session
 session_start();
 
-if ($filename === 'login') {
-    // session_start and session_destroy must be before header
-    include 'templates/login.tpl.php';
-} else {
-    include 'templates/defaults/header.tpl.php';
-
-    switch ($filename) {
-        case 'gallery':
-            include 'templates/gallery.tpl.php';
-        break;
-
-        case 'game':
-            include 'templates/game.tpl.php';
-        break;
-
-        default:
-            include 'templates/home.tpl.php';
-    }
-
-    include 'templates/defaults/end.tpl.php';
+switch ($filename) {
+    case 'login':
+        // session_start and session_destroy must be before header
+        include 'templates/login.tpl.php';
+    break;
+    // case 'test':
+    //     include 'templates/componenttest.tpl.php';
+    // break;
+    case 'gallery':
+        include 'templates/defaults/header.tpl.php';
+        include 'templates/gallery.tpl.php';
+        include 'templates/defaults/end.tpl.php';
+    break;
+    case 'game':
+        include 'templates/gameBackend.inc.php';
+        include 'templates/defaults/header.tpl.php';
+        include 'templates/game.tpl.php';
+        include 'templates/defaults/end.tpl.php';
+    break;
+    default:
+        include 'templates/defaults/header.tpl.php';
+        include 'templates/home.tpl.php';
+        include 'templates/defaults/end.tpl.php';
 }
 ?>
