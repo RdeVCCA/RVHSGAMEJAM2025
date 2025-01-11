@@ -25,7 +25,7 @@
         <!-- Add new row for Subtheme Relatedness -->
 
         <tr>
-            <th class="criteria-header">Criteria</th>
+            <th class="criteria-header">Secondary Criteria</th>
             <th class="criteria-header score">3</th>
             <th class="criteria-header score">2</th>
             <th class="criteria-header score">1</th>

@@ -1,0 +1,140 @@
+/* flexbox shortcuts */
+/* flex direction row */
+.cont-h,
+/* flex direction column */
+.cont-v,
+/* flex direction row, space between */
+.cont-h-dh,
+/* flex direction column, space between */
+.cont-v-dv,
+/* flex direction row, centered */
+.cont-h-ch,
+/* flex direction column, centered */
+.cont-v-cv,
+/* flex direction row, align to horizontal */
+.cont-h-cv,
+/* flex direction column, align to vertical */
+.cont-v-ch,
+/* flex direction row, centered */
+.cont-h-c,
+/* flex direction column, centered */
+.cont-v-c {
+  display: flex;
+}
+
+.cont-h {
+  flex-direction: row;
+}
+
+.cont-v {
+  flex-direction: column;
+}
+
+.cont-h-dh {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cont-v-dv {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cont-h-ch {
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cont-v-cv {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cont-h-cv {
+  flex-direction: row;
+  align-items: center;
+}
+
+.cont-v-ch {
+  flex-direction: column;
+  align-items: center;
+}
+
+.cont-h-c {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cont-v-c {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* gap for flex direction row */
+.cont-h-g {
+  column-gap: 2em;
+}
+
+/* gap for flex direction column */
+.cont-v-g {
+  row-gap: 2em;
+}
+
+/* reverse flex direction row */
+.cont-h-r {
+  flex-direction: row-reverse;
+}
+
+.cont-h-r>* {
+  text-align: right;
+}
+
+/* reverse flex direction column */
+.cont-v-r {
+  flex-direction: column-reverse;
+}
+
+/* enable flex wrap */
+.cont-w {
+  flex-wrap: wrap;
+}
+
+/* cont-nr: not responsive */
+@media only screen and (max-width: 800px) {
+
+  .cont-h:not(.cont-nr),
+  .cont-h-dh:not(.cont-nr),
+  .cont-h-ch:not(.cont-nr),
+  .cont-h-cv:not(.cont-nr),
+  .cont-h-r:not(.cont-nr) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cont-h-r:not(.cont-nr)>* {
+    /* flex-direction: column-reverse; */
+    text-align: left;
+  }
+
+  .cont-h-dh:not(.cont-nr) {
+    justify-content: space-between;
+  }
+
+  .cont-h-ch:not(.cont-nr) {
+    justify-content: center;
+  }
+
+  .cont-h-cv:not(.cont-nr) {
+    align-items: center;
+  }
+
+  .cont-h-g {
+    column-gap: 1em;
+  }
+
+  .cont-v-g {
+    row-gap: 1em;
+  }
+}

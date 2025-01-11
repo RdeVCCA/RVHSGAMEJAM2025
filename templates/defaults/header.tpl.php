@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang = "en">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         
@@ -10,11 +10,10 @@
         <meta name="description" content="">
         <link rel="icon" href="static/img/logo.ico">
 
-        <link rel="stylesheet" type="text/css" href="static/css/home.css?<?php echo time(); ?>">
-        <link rel="stylesheet" type="text/css" href="static/css/image.css?<?php echo time(); ?>">
         <link rel="stylesheet" type="text/css" href="static/css/shared.css?<?php echo time(); ?>">
-        <link rel="stylesheet" type="text/css" href="static/css/mobile.css?<?php echo time(); ?>">
-        <link rel="stylesheet" type="text/css" href="static/css/navbar.css?<?php echo time(); ?>">
+        <!-- <link rel="stylesheet" type="text/css" href="static/css/mobile.css?<?php echo time(); ?>"> -->
+        <link rel="stylesheet" type="text/css" href="static/css/components.css?<?php echo time(); ?>" />
+        <link rel="stylesheet" type="text/css" href="static/css/flexbox.css?<?php echo time(); ?>" />
         <!-- <link rel="stylesheet" href="static/css/share.css?<?php echo time(); ?>"> -->
 
         <!-- <meta name="theme-color" content="#00222b" /> -->
@@ -39,10 +38,3 @@
         <meta name="twitter:title" content="RdeV">
         <meta name="twitter:description" content="🎮 Attention RVHS gamers and creators! Join the RVHS Gamejam to showcase your skills in coding, art, music, or storytelling. 🌟 Sign up now and start crafting your gaming masterpiece today! 🚀 Let's get gaming!">
         <meta name="twitter:image" content="https://rvhsgamejam.x10.mx/static/img/logo.png">
-    
-    
-    
-    
-
-    
-
