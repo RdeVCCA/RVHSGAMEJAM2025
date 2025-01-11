@@ -7,7 +7,7 @@
         <?php
         include_once 'backend/pastGames.inc.php';
         $firstYear = null;
-        echo '<div class="cont-h cont-h-g cont-nr">';
+        echo '<div class="cont-h cont-h-g cont-nr scroll-x">';
 
         // make the year buttons
         foreach ($pastGames as $year => $value) {

@@ -57,6 +57,14 @@
   padding: 0;
 }
 
+.scroll-x {
+  overflow-x: scroll;
+}
+
+.scroll-y {
+  overflow-y: scroll;
+}
+
 /* turns <a> into a clickable button */
 .anchor-button {
   cursor: pointer;

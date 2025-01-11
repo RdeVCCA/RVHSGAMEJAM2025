@@ -65,19 +65,11 @@ h2 {
 
 .thumbnail {
   border: none;
+  width: 80vw;
   max-height: 50vh;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  max-width: 80vw;
   margin: 1rem;
-}
-
-.inline {
-  display: inline;
-}
-
-.margin {
-  margin: 2rem 5rem;
 }
 
 .comment-container {
@@ -138,26 +130,12 @@ textarea {
   align-items: center;
 }
 
-/* #Theme { */
-/* grid-row: 1; */
-/* grid-column: 2; */
-/* margin-bottom: 0; */
-/* } */
-
 .login-notice {
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
 @media only screen and (max-width: 600px) {
-  iframe {
-    width: 60vw;
-  }
-
-  img {
-    width: 60vw;
-  }
-
   .ratings {
     display: grid;
     grid-template-columns: 40% 60%;

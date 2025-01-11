@@ -7,7 +7,7 @@
             include_once 'templates/navbar.tpl.php';
             include_once 'backend/gameFileUtils.inc.php';
             include_once 'templates/stars.tpl.php';
-            include_once 'backend/Defaults/connect.php';
+            require_once 'backend/Defaults/connect.php';
 
             // there are 2 parts to this chunk of php:
             // the first chunk gets game info and displays it to the user
@@ -33,69 +33,6 @@
                 'SELECT pfp, username, `comment` FROM comments LEFT JOIN users ON comments.userId = users.userId WHERE gameId = ?',
                 [$gameId]
             );
-
-            // handle POST requests from the 2 forms below
-            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['userEmail'])) {
-                $userEmail = $_SESSION['userEmail'];
-                $userId = sqlQueryObject(
-                    $conn,
-                    'SELECT userId FROM users WHERE email = ?',
-                    [$userEmail]
-                )->userId;
-
-                // check if the POST request is for ratings
-                $ratingOverall = $_POST['rating-overall'];
-                $ratingRelated = $_POST['rating-related'];
-                $ratingAesthetic = $_POST['rating-aesthetic'];
-                $ratingFun = $_POST['rating-fun'];
-                
-                if (
-                    isset($ratingOverall) && isset($ratingRelated) && isset($ratingAesthetic) && isset($ratingFun)
-                    && $ratingOverall >= 1 && $ratingRelated >= 1 && $ratingAesthetic >= 1 && $ratingFun >= 1
-                    && $ratingOverall <= 5 && $ratingRelated <= 5 && $ratingAesthetic <= 5 && $ratingFun <= 5
-                ) {
-                    // check if the user has already rated
-                    $ratingExist = isset(
-                        sqlQueryObject(
-                            $conn,
-                            'SELECT Id FROM ratings WHERE userId = (SELECT userId FROM users WHERE email = ?) AND gameId = ?',
-                            [$userEmail, $gameId]
-                        )
-                        ->userId
-                    );
-                    // if a previous rating exists we overwrite that rating,
-                    // if not we make a new rating
-                    if (isset($ratingExist)) {
-                        sqlQueryObject(
-                            $conn,
-                            'UPDATE ratings SET MainRating = ?, ThemeRating = ?, AestheticRating = ?, FunRating = ? WHERE userId = ? AND gameId = ?',
-                            [$ratingOverall, $ratingRelated, $ratingAesthetic, $ratingFun, $userId, $gameId]
-                        );
-                    } else {
-                        sqlQueryObject(
-                            $conn,
-                            'INSERT INTO ratings(userId, gameId, MainRating, ThemeRating, AestheticRating, FunRating) VALUES (?, ?, ?, ?, ?, ?)',
-                            [$userId, $gameId, $ratingOverall, $ratingRelated, $ratingAesthetic, $ratingFun]
-                        );
-                    }
-                    // redirect to prevent resending form data when the user refreshes the page
-                    header("Location: index.php?filename=game&gameId=$gameId");
-                    die();
-                }
-
-                // check if the POST request is for comments
-                $comment = $_POST['comment'];
-                if (isset($comment) && $comment !== '' && strlen(trim($comment)) !== 0) {
-                    sqlQueryObject(
-                        $conn,
-                        'INSERT INTO comments(userId, comment, gameId) VALUES (?, ?, ?)',
-                        [$userId, $comment, $gameId]
-                    );
-                }
-                // redirect to prevent resending form data when the user refreshes the page
-                header("Location: index.php?filename=game&gameId=$gameId");
-                die();
-            }
         ?>
         <div id="game-header">
             <h1><?php echo htmlspecialchars($gameInfo->name) ?></h1>
@@ -168,44 +105,44 @@
             if (isset($_SESSION['userEmail'])) {
                 ?>
                 <!-- review form -->
-                <form action='<?php echo "index.php?filename=game&gameId=$gameId" ?>' method='POST'>
-                    <h2>Rate</h2>
+                <h2>Rate</h2>
+                <form action='<?php echo "index.php?filename=game&gameId=$gameId" ?>' method='POST' class="cont-v-ch">
                     <?php
                     $rating = sqlQueryObject(
                         $conn,
                         'SELECT MainRating main, ThemeRating related, AestheticRating aesthetic, FunRating fun FROM ratings WHERE userId = (SELECT userId FROM users WHERE email = ?) AND gameId = ?',
-                        [$userEmail, $gameId]
+                        [$_SESSION['userEmail'], $gameId]
                     );
                     ?>
                     <div class="ratings"> 
                         <b>Overall</b>
                         <div id="overall">
                             <!-- name=rating-overall -->
-                            <?php makeNewRating('overall', $rating->main) ?>
+                            <?php makeNewRating('overall', $rating?->main) ?>
                         </div>
                         Relatedness to Theme
                         <div id="related">
                             <!-- name=rating-related -->
-                            <?php makeNewRating('related', $rating->related) ?>
+                            <?php makeNewRating('related', $rating?->related) ?>
                         </div>
                         Aesthetic
                         <div id="aesthetic">
                             <!-- name=rating-aesthetic -->
-                            <?php makeNewRating('aesthetic', $rating->aesthetic) ?>
+                            <?php makeNewRating('aesthetic', $rating?->aesthetic) ?>
                         </div>
                         Fun
                         <div id="fun">
                             <!-- name=rating-fun -->
-                            <?php makeNewRating('fun', $rating->fun) ?>
+                            <?php makeNewRating('fun', $rating?->fun) ?>
                         </div>
                     </div>
                     <button class="submit" type='submit'>Submit ratings</button>
                 </form>
 
                 <!-- comment form -->
-                <form action='<?php echo "index.php?filename=game&gameId=$gameId" ?>' method='POST'>
-                    <h2>Comment</h2>
-                    <label for="comment-input">Create a comment:</label>
+                <h2>Comment</h2>
+                <form action='<?php echo "index.php?filename=game&gameId=$gameId" ?>' method='POST' class="cont-v-ch">
+                    <!-- <label for="comment-input">Create a comment:</label> -->
                     <!-- name=comment -->
                     <textarea placeholder="Enter a comment" id="comment-input" name="comment"></textarea>
                     <button class="submit" type='submit'>Add comment</button>
