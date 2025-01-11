@@ -14,10 +14,10 @@
                 include_once 'backend/pastGames.inc.php';
                 foreach ($pastGames as $year => $games) {
                     foreach ($games as $i => $game) {
-                        if (!isset($game['thumbnail'])) {
+                        if (!isset($game['logo'])) {
                             continue;
                         }
-                        $thumbnail = $game['thumbnail'];
+                        $thumbnail = $game['logo'];
                     ?>
                     <img class="carousel-image" src="<?php echo $thumbnail ?>">
                     <?php
