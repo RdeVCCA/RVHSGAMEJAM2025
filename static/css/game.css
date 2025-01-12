@@ -60,16 +60,28 @@
 
 h2 {
   color: #ACACAC;
-  margin-bottom: 1rem;
+}
+
+.thumbnail-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  width: 100%;
+  max-width: 80vw;
+  max-height: 50vh;
+  aspect-ratio: 16 / 9;
+}
+
+iframe.thumbnail {
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
 }
 
 .thumbnail {
   border: none;
-  width: 80vw;
-  max-height: 50vh;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  margin: 1rem;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
 }
 
 .comment-container {
@@ -143,10 +155,6 @@ textarea {
 
   .submit {
     border-radius: 0.5rem;
-  }
-
-  h2 {
-    margin-bottom: 0;
   }
 
   #comment-input {

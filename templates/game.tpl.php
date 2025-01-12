@@ -28,16 +28,23 @@
             $trailerExists = isset($gameInfo->trailer);
 
             // get comment info
+            $userEmail = $_SESSION['userEmail'];
+            $userId = sqlQueryObject(
+                $conn,
+                'SELECT userId FROM users WHERE email = ?',
+                [$userEmail]
+            )->userId;
+
             $commentInfo = sqlQueryAllObjects(
                 $conn,
-                'SELECT pfp, username, `comment` FROM comments LEFT JOIN users ON comments.userId = users.userId WHERE gameId = ?',
-                [$gameId]
+                'SELECT pfp, username, `comment` FROM comments LEFT JOIN users ON comments.userId = users.userId WHERE gameId = ? AND (users.userId = ? OR users.whitelisted = 1)',
+                [$gameId, $userId]
             );
         ?>
         <div id="game-header">
-            <h1><?php echo htmlspecialchars($gameInfo->name) ?></h1>
-            <div><?php echo htmlspecialchars($gameInfo->genre) ?></div>
-            <div>Created by <?php echo htmlspecialchars($gameInfo->creators) ?></div>
+            <h1><?php echo htmlspecialchars($gameInfo->name ?? '') ?></h1>
+            <div><?php echo htmlspecialchars($gameInfo->genre ?? '') ?></div>
+            <div>Created by <?php echo htmlspecialchars($gameInfo->creators ?? '') ?></div>
         </div>
         
         <div id="game-content">
@@ -49,7 +56,12 @@
                     <a href="javascript:void(0)" onclick="update()"><div id="left-arrow">&#x2190;</div></a>
                     <?php
                 }
-                
+
+                if ($trailerExists || $thumbnailExists) {
+                    ?>
+                    <div class="thumbnail-container">
+                    <?php
+                }
                 if ($trailerExists) {
                     ?>
                     <iframe id="trailer" class="thumbnail" src="<?php echo $gameInfo->trailer ?>"></iframe>
@@ -58,6 +70,11 @@
                 if ($thumbnailExists) {
                     ?>
                     <img id="thumbnail" class="thumbnail" src="<?php echo $thumbnail ?>">
+                    <?php
+                }
+                if ($trailerExists || $thumbnailExists) {
+                    ?>
+                    </div>
                     <?php
                 }
                 

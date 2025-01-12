@@ -10,9 +10,9 @@
         include_once 'templates/about.tpl.php';
         include_once 'templates/pastGames.tpl.php';
 
-        if (isset($_SESSION['loginNotAllowed'])) {
-            echo '<script>alert("Sorry! Only students and staff from RVHS can signup!");</script>';
-            $_SESSION['loginNotAllowed'] = null;
+        if (isset($_SESSION['accountRestricted'])) {
+            echo '<script>alert("As this is a non-RVHS account, we would need to manually approve your email account before your reviews are shown to others. You may contact us to speed up this process; our contact details can be found at the bottom.");</script>';
+            $_SESSION['accountRestricted'] = null;
         }
     ?>
     
