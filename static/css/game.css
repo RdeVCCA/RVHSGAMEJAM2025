@@ -62,13 +62,26 @@ h2 {
   color: #ACACAC;
 }
 
-.thumbnail {
-  border: none;
+.thumbnail-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  width: 100%;
   max-width: 80vw;
   max-height: 50vh;
   aspect-ratio: 16 / 9;
+}
+
+iframe.thumbnail {
+  aspect-ratio: 16 / 9;
   object-fit: contain;
-  margin: 1rem;
+}
+
+.thumbnail {
+  border: none;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
 }
 
 .comment-container {
