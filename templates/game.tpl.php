@@ -56,7 +56,12 @@
                     <a href="javascript:void(0)" onclick="update()"><div id="left-arrow">&#x2190;</div></a>
                     <?php
                 }
-                
+
+                if ($trailerExists || $thumbnailExists) {
+                    ?>
+                    <div class="thumbnail-container">
+                    <?php
+                }
                 if ($trailerExists) {
                     ?>
                     <iframe id="trailer" class="thumbnail" src="<?php echo $gameInfo->trailer ?>"></iframe>
@@ -65,6 +70,11 @@
                 if ($thumbnailExists) {
                     ?>
                     <img id="thumbnail" class="thumbnail" src="<?php echo $thumbnail ?>">
+                    <?php
+                }
+                if ($trailerExists || $thumbnailExists) {
+                    ?>
+                    </div>
                     <?php
                 }
                 
