@@ -1,24 +1,29 @@
-.year-select {
-  width: 100%;
-}
-
 .past-games {
   background-color: var(--background-color3);
-  padding: 1em 5em;
+  padding: 2rem 0;
 }
 
-.year-div {
+.year-select-container {
+  width: 100vw;
+  overflow-x: scroll;
+}
+
+.game-select-container {
   background-color: var(--background-color2);
   max-width: 100vw;
   padding: 1em;
   overflow-x: scroll;
 }
 
-.year-div:not(.selected) {
+.game-select-container:not(.selected) {
   display: none;
 }
 
-div[game-id]:not(.selected) {
+.game-content {
+  padding: 0 5vw;
+}
+
+.game-content:not(.selected) {
   display: none;
 }
 
@@ -35,10 +40,9 @@ div[game-id]:not(.selected) {
   border-radius: 0.3125em;
   background-color: var(--background-color1);
   color: var(--secondary-color2);
-  width: 5em;
-  max-width: 25vw;
-  padding: 0.3em 0;
-  font-size: 1.5rem;
+  min-width: fit-content;
+  padding: 0.3em 0.3em;
+  font-size: 1.2em;
   font-weight: bold;
   cursor: pointer;
   transition: filter 0.2s ease-in-out;
@@ -67,5 +71,13 @@ div[game-id]:not(.selected) {
 video.game-video,
 img.game-thumbnail {
   display: block;
+  max-width: 100%;
   height: 10em;
+  object-fit: contain;
+}
+
+@media only screen and (max-width: 800px) {
+  .past-games {
+    padding: 1rem 0;
+  }
 }

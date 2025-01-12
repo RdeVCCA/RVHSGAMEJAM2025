@@ -28,16 +28,23 @@
             $trailerExists = isset($gameInfo->trailer);
 
             // get comment info
+            $userEmail = $_SESSION['userEmail'];
+            $userId = sqlQueryObject(
+                $conn,
+                'SELECT userId FROM users WHERE email = ?',
+                [$userEmail]
+            )->userId;
+
             $commentInfo = sqlQueryAllObjects(
                 $conn,
-                'SELECT pfp, username, `comment` FROM comments LEFT JOIN users ON comments.userId = users.userId WHERE gameId = ?',
-                [$gameId]
+                'SELECT pfp, username, `comment` FROM comments LEFT JOIN users ON comments.userId = users.userId WHERE gameId = ? AND (users.userId = ? OR users.whitelisted = 1)',
+                [$gameId, $userId]
             );
         ?>
         <div id="game-header">
-            <h1><?php echo htmlspecialchars($gameInfo->name) ?></h1>
-            <div><?php echo htmlspecialchars($gameInfo->genre) ?></div>
-            <div>Created by <?php echo htmlspecialchars($gameInfo->creators) ?></div>
+            <h1><?php echo htmlspecialchars($gameInfo->name ?? '') ?></h1>
+            <div><?php echo htmlspecialchars($gameInfo->genre ?? '') ?></div>
+            <div>Created by <?php echo htmlspecialchars($gameInfo->creators ?? '') ?></div>
         </div>
         
         <div id="game-content">

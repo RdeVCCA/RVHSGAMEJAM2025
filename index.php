@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL ^ E_WARNING);
 header('Strict-Transport-Security: max-age=63072000; includeSubDomains; preload');
 header('X-Frame-Options: DENY');
 header('X-Content-Type-Options: nosniff');
