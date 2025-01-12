@@ -25,9 +25,9 @@
                         <a class='game-thumbnail-container' href='index.php?filename=game&gameId=<?php echo $game->gameId ?>'>
                             <img class='grid game-thumbnail' src='<?php echo $thumbnail ?>'>
                         </a>
-                        <span class='grid name'><?php echo htmlspecialchars($game->name) ?></span>
-                        <span class='grid creator'><?php echo htmlspecialchars($game->creators) ?></span>
-                        <span class='grid genre'><?php echo htmlspecialchars($game->genre) ?></span>
+                        <span class='grid name'><?php echo htmlspecialchars($game->name ?? '') ?></span>
+                        <span class='grid creator'><?php echo htmlspecialchars($game->creators ?? '') ?></span>
+                        <span class='grid genre'><?php echo htmlspecialchars($game->genre ?? '') ?></span>
                     </div>
                     <?php
                 }

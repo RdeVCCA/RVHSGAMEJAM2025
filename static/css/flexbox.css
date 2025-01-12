@@ -42,12 +42,12 @@
 
 .cont-h-ch {
   flex-direction: row;
-  justify-content: center;
+  justify-content: safe center;
 }
 
 .cont-v-cv {
   flex-direction: column;
-  justify-content: center;
+  justify-content: center center;
 }
 
 .cont-h-cv {
@@ -74,12 +74,12 @@
 
 /* gap for flex direction row */
 .cont-h-g {
-  column-gap: 2em;
+  column-gap: 2rem;
 }
 
 /* gap for flex direction column */
 .cont-v-g {
-  row-gap: 2em;
+  row-gap: 2rem;
 }
 
 /* reverse flex direction row */
@@ -131,10 +131,10 @@
   }
 
   .cont-h-g {
-    column-gap: 1em;
+    column-gap: 1rem;
   }
 
   .cont-v-g {
-    row-gap: 1em;
+    row-gap: 1rem;
   }
 }

@@ -60,15 +60,14 @@
 
 h2 {
   color: #ACACAC;
-  margin-bottom: 1rem;
 }
 
 .thumbnail {
   border: none;
-  width: 80vw;
+  max-width: 80vw;
   max-height: 50vh;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
   margin: 1rem;
 }
 
@@ -143,10 +142,6 @@ textarea {
 
   .submit {
     border-radius: 0.5rem;
-  }
-
-  h2 {
-    margin-bottom: 0;
   }
 
   #comment-input {

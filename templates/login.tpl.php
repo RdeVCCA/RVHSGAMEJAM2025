@@ -40,27 +40,44 @@
         $lastExploded = end($exploded);
         $fromRvhs = strtoupper($lastExploded) === '(RVHS)';
 
-        if (($googleInfo['hd'] == 'students.edu.sg' && $fromRvhs) || $googleInfo['hd'] == 'moe.edu.sg') {
-            $_SESSION['userEmail'] = $userEmail;
-            $_SESSION['userPicture'] = $userPicture;
+        $_SESSION['userEmail'] = $userEmail;
+        $_SESSION['userPicture'] = $userPicture;
 
-            // add user to database if user isn't already inside
-            $userExist = sqlQueryObject(
-                $conn,
-                'SELECT userId FROM users WHERE email = ?',
-                [$userEmail]
-            )->userId;
+        // add user to database if user isn't already inside
+        $userExist = sqlQueryObject(
+            $conn,
+            'SELECT userId FROM users WHERE email = ?',
+            [$userEmail]
+        ) !== null;
 
-            if (!isset($userExist)) {
+        if (!$userExist) {
+            if (($googleInfo['hd'] == 'students.edu.sg' && $fromRvhs) || $googleInfo['hd'] == 'moe.edu.sg') {
+                // account is RVHS, put on whitelist
                 sqlQueryObject(
                     $conn,
-                    'INSERT INTO users(email, username, pfp) VALUES (?, ?, ?)',
-                    [$userEmail, $userName, $userPicture]
+                    'INSERT INTO users(email, username, pfp, whitelisted) VALUES (?, ?, ?, ?)',
+                    [$userEmail, $userName, $userPicture, 1]
+                );
+            } else {
+                $_SESSION['accountRestricted'] = true;
+                sqlQueryObject(
+                    $conn,
+                    'INSERT INTO users(email, username, pfp, whitelisted) VALUES (?, ?, ?, ?)',
+                    [$userEmail, $userName, $userPicture, 0]
                 );
             }
         } else {
-            $_SESSION['loginNotAllowed'] = true;
+            // user exists, now check if it's whitelisted. if it isn't, we set $_SESSION['accountRestricted'] = true
+            $userRestricted = sqlQueryObject(
+                $conn,
+                'SELECT whitelisted FROM users WHERE email = ?',
+                [$userEmail]
+            )->whitelisted == 0;
+            if ($userRestricted) {
+                $_SESSION['accountRestricted'] = true;
+            }
         }
+
         header('Location: index.php');
     } else {
         header("Location: $googleUrl");
