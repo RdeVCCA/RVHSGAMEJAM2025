@@ -1,5 +1,5 @@
 <section id="about">
-    <link rel="stylesheet" href="static/css/about.css?<?php echo time(); ?>" />
+    <link rel="stylesheet" href="static/css/about.css?" />
     <h2>About</h2>
     <div class="cont-v-cv cont-v-g">
         <div class="cont-h-dh cont-h-g">

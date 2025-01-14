@@ -10,11 +10,11 @@
         <meta name="description" content="">
         <link rel="icon" href="static/img/logo.ico">
 
-        <link rel="stylesheet" type="text/css" href="static/css/shared.css?<?php echo time(); ?>">
-        <!-- <link rel="stylesheet" type="text/css" href="static/css/mobile.css?<?php echo time(); ?>"> -->
-        <link rel="stylesheet" type="text/css" href="static/css/components.css?<?php echo time(); ?>" />
-        <link rel="stylesheet" type="text/css" href="static/css/flexbox.css?<?php echo time(); ?>" />
-        <!-- <link rel="stylesheet" href="static/css/share.css?<?php echo time(); ?>"> -->
+        <link rel="stylesheet" type="text/css" href="static/css/shared.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="static/css/mobile.css" /> -->
+        <link rel="stylesheet" type="text/css" href="static/css/components.css" />
+        <link rel="stylesheet" type="text/css" href="static/css/flexbox.css" />
+        <!-- <link rel="stylesheet" href="static/css/share.css" /> -->
 
         <!-- <meta name="theme-color" content="#00222b" /> -->
         <!-- HTML Meta Tags -->

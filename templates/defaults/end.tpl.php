@@ -1,3 +1,3 @@
-	<!-- <script src = "static/js/format.js?<?php echo time(); ?>"></script> -->
+	<!-- <script src = "static/js/format.js"></script> -->
 </body>
 </html>
