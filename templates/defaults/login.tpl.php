@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="static/css/login.css?<?php echo time(); ?>">
+<link rel="stylesheet" type="text/css" href="static/css/login.css">
 <div class = "login">
     <h2>Enter your Student ICON email</h2>
     <form class="login_form" action="backend/Defaults/login.inc.php" method="post">
