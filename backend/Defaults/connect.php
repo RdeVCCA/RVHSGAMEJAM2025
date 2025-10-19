@@ -1,5 +1,5 @@
 <?php
-require_once '../../../private/rvhsgamejam_secrets.inc.php';
+require_once '../../private/rvhsgamejam_secrets.inc.php';
 $conn = mysqli_connect(DB_SERVERNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
 // use UTF-8 charset, if not it will cause encoding errors with JSON (iirc)
 $conn->set_charset('utf8mb4');
