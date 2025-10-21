@@ -3,7 +3,7 @@
     require_once 'backend/Defaults/connect.php';
     require_once 'includes/google-api-php-client--PHP7.4/vendor/autoload.php';
     
-    // $redirectUri = 'http://localhost/RVHSGAMEJAM2024/index.php?filename=login';
+    // $redirectUri = 'http://localhost/RVHSGAMEJAM2025/index.php?filename=login';
     // $redirectUri = 'https://rvhsgamejam.x10.mx/index.php?filename=login';
 
     $client = new Google_Client();
