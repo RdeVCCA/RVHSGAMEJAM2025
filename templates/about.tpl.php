@@ -27,9 +27,9 @@
             </div>
         </div>
         <div class="cont-v-cv">
-            <video id="about-video" controls>
+            <!-- <video id="about-video" controls>
                 <source src="static/videos/gamejamvid.mp4" type="video/mp4">
-            </video>
+            </video> -->
             <p>
                 What’s a game jam? A game jam is a <b>competition</b>
                 where participants create games based on <b>a specific theme</b>.

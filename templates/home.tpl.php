@@ -24,13 +24,13 @@
                 <h2>Eligibility and Team Formation</h2>
                 <p>
                     Open to all <b>River Valley High School students</b>,
-                    you can participate <b>individually</b> or in <b>teams of up to four members</b>.
+                    you can participate <b>individually</b> or in <b>teams of up to five members</b>.
                     Feel free to choose your teammates or opt for <b>random assignment</b>.
                 </p>
             </div>
             <div class="cont-v-c">
                 <img id="image-team" src="static/img/team.webp" class="home-img">
-                <a href="https://forms.gle/Va3WKpSuwXPjFjSS8" target="_blank" class="anchor-button hover">Sign Up</a>
+                <a href="https://docs.google.com/forms/d/1h3gkT--djiwWKIUULAtXa8ufNEUbG3Il0vwT_ukjXsA" target="_blank" class="anchor-button hover">Sign Up</a>
             </div>
         </div>
 
@@ -39,12 +39,12 @@
             <div class="cont-v">
                 <h2>Competition Timeline</h2>
                 <p>
-                    The Gamejam runs from <b>November 1st to December 31st</b>,
+                    The Gamejam runs from <b>November 8th to December 31st</b>,
                     which includes the December holidays.
                 </p>
             </div>
             <div class="cont-v-c">
-                <img src="static/img/calendar.webp" class="home-img">
+                <!-- <img src="static/img/calendar.webp" class="home-img"> -->
             </div>
         </div>
 
@@ -54,13 +54,12 @@
                 <h2>Theme</h2>
                 <p>
                     The Gamejam features <b>one main topic</b>,
-                    along with <b>three optional sub-topics</b>,
+                    along with <b>multiple optional sub-topics</b>,
                     which will boost your score.
                 </p>
                 <p>
                     The game's theme will be announced at the start
-                    of the competition on <b>November 1st</b>,
-                    via <b>this website</b> and <b>social media</b>.
+                    of the competition on <b>November 8th</b> via <b>social media</b>.
                 </p>
             </div>
             <a href="https://www.instagram.com/rv.devs/" target="_blank" class="hover">
@@ -69,7 +68,7 @@
         </div>
 
         <!-- the stumped part -->
-        <div class="cont-h-dh cont-h-g cont-h-r">
+        <!-- <div class="cont-h-dh cont-h-g cont-h-r">
             <div class="cont-v">
                 <h2>Stumped?</h2>
                 <p>
@@ -78,10 +77,10 @@
                 </p>
             </div>
             <div class="cont-v-c">
-                <!-- TODO: find a better image (this one is just one of the gmtk topics) -->
+                TODO: find a better image (this one is just one of the gmtk topics)
                 <img src="static/img/gmtkTheme.webp" class="home-img">
             </div>
-        </div>
+        </div> -->
 
         <hr>
 
@@ -101,7 +100,7 @@
         </div>
 
         <!-- asset creation -->
-        <div class="cont-h-dh cont-h-g cont-h-r">
+        <!-- <div class="cont-h-dh cont-h-g cont-h-r">
             <div class="cont-v">
                 <h2>Asset Creation</h2>
                 <p>
@@ -110,10 +109,10 @@
                 </p>
             </div>
             <div class="cont-v-c">
-                <!-- TODO: maybe can stack the logos like for the tools image -->
+                TODO: maybe can stack the logos like for the tools image
                 <img src="static/img/assets.webp" class="home-img">
             </div>
-        </div>
+        </div> -->
 
         <!-- recommended software -->
         <h2>Recommended Software</h2>
@@ -296,7 +295,7 @@
                     </a>
                     <div class="cont-v-ch">
                         <img class="icon" src="static/img/call.webp">
-                        <p>+65 8511 8746<br>(President, Natalie)</p>
+                        <p>+65 9025 6233<br>(President, Yue Han)</p>
                     </div>
                 </div>
             </div>
@@ -304,8 +303,8 @@
 
         <!-- sign up button -->
     </div>
-    <footer class="cont-h-ch">
-        <a href="https://forms.gle/Va3WKpSuwXPjFjSS8" class="anchor-button hover" target="_blank"><span>Sign Up</span></a>
+    <footer class="cont-h-ch">	
+        <a href="https://docs.google.com/forms/d/1h3gkT--djiwWKIUULAtXa8ufNEUbG3Il0vwT_ukjXsA" class="anchor-button hover" target="_blank"><span>Sign Up</span></a>
     </footer>
 
     <script>
