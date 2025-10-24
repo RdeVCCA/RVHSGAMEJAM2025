@@ -44,7 +44,9 @@
                 </p>
             </div>
             <div class="cont-v-c">
-                <!-- <img src="static/img/calendar.webp" class="home-img"> -->
+                <img src="static/img/calendar1.webp" class="home-img">
+				<div class="mt-5"><br></div>
+				<img src="static/img/calendar2	.webp" class="home-img">
             </div>
         </div>
 
@@ -59,7 +61,7 @@
                 </p>
                 <p>
                     The game's theme will be announced at the start
-                    of the competition on <b>November 8th</b> via <b>social media</b>.
+                    of the competition on <b>November 8th</b> via <b>social media</b> and the <b>gamejam website</b>.
                 </p>
             </div>
             <a href="https://www.instagram.com/rv.devs/" target="_blank" class="hover">
