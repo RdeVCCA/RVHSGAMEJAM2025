@@ -19,7 +19,7 @@
         }
     }
     ?>
-    <a class="navbar-item" href="https://rdev.x10.mx" target="_blank">
+    <a class="navbar-item" href="/" target="_blank">
         <img class="navbar-logo" src="static/img/rdev.webp" alt="RdeV Website"> 
     </a>
     <a class="navbar-item <?php if ($currentPage === 'index') { echo 'active'; } ?>" href="index.php">
