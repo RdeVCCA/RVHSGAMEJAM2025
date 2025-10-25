@@ -1,5 +1,10 @@
 <?php
-    require_once '/private/rvhsgamejam_secrets.inc.php';
+	if ($_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['SERVER_NAME'] === '127.0.0.1') {
+		require_once 'C:\xampp_new\htdocs\RVHSGAMEJAM2025\private\rvhsgamejam_secrets.inc.php';
+	} else {
+		// Running on the production server
+		require_once '../../../private/rvhsgamejam_secrets.inc.php';
+	}
     require_once 'backend/Defaults/connect.php';
     require_once 'includes/google-api-php-client--PHP7.4/vendor/autoload.php';
     
